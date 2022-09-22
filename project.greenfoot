@@ -1,15 +1,18 @@
 #Greenfoot project file
 class.Monster.image=Monster1.gif
 class.MyWorld.image=space.jpg
-dependency1.from=Monster
-dependency1.to=GifImage
+dependency1.from=MyWorld
+dependency1.to=Monster
 dependency1.type=UsesDependency
-editor.fx.0.height=537
-editor.fx.0.width=800
-editor.fx.0.x=525
-editor.fx.0.y=125
+dependency2.from=Monster
+dependency2.to=GifImage
+dependency2.type=UsesDependency
+editor.fx.0.height=741
+editor.fx.0.width=1292
+editor.fx.0.x=74
+editor.fx.0.y=27
 height=741
-package.numDependencies=1
+package.numDependencies=2
 package.numTargets=3
 project.charset=UTF-8
 publish.hasSource=false
