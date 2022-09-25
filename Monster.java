@@ -5,28 +5,16 @@ import greenfoot.*;
 /**
  * 
  */
-public class Monster extends Actor
-{
-    GifImage monster = new GifImage("Monster1.gif");
+public class Monster extends Actor {
+    private int score;
  
-    /**
-     * Act - do whatever the Monster wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-
-        setImage(monster.getCurrentImage());
-        int x = getX();
-        int y = getY();
-        getImage().scale(60,60);
-        if(Greenfoot.isKeyDown("left")){
-            setLocation(x-2, y);
-        }else if(Greenfoot.isKeyDown("right")){
-            setLocation(x+2, y);
-        }else if(Greenfoot.isKeyDown("down")){
-            setLocation(x, y+2);
-        }else if(Greenfoot.isKeyDown("up")){
-            setLocation(x, y-2);
-        }
+    public int getScore(){
+        return score;
     }
+    
+    public void setScore(int value){
+        score = value;
+    }
+    
+    
 }

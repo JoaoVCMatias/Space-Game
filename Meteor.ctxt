@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Meteor
+comment0.text=\n\ Write\ a\ description\ of\ class\ Meteor\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=value
+comment1.target=Meteor(int)
+comment2.params=
+comment2.target=int\ getValue()
+numComments=3
