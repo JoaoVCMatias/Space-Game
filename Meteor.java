@@ -18,5 +18,9 @@ public class Meteor extends Actor
         return value;
     }
     
-
+    public void atWorldEdge() {
+        if(getY() > getWorld().getHeight() - 5) {
+            getWorld().removeObject(this);
+        }
+    }
 }

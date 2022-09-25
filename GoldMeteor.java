@@ -25,5 +25,6 @@ public class GoldMeteor extends Meteor
         int x = getX();
         int y = getY();
         setLocation(x, y+2);
+        atWorldEdge();
     }
 }

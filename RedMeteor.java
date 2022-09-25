@@ -25,5 +25,6 @@ public class RedMeteor extends Meteor
         int x = getX();
         int y = getY();
         setLocation(x, y+2);
+        atWorldEdge();
     }
 }

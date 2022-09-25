@@ -5,4 +5,6 @@ comment1.params=value
 comment1.target=Meteor(int)
 comment2.params=
 comment2.target=int\ getValue()
-numComments=3
+comment3.params=
+comment3.target=void\ atWorldEdge()
+numComments=4

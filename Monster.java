@@ -15,6 +15,4 @@ public class Monster extends Actor {
     public void setScore(int value){
         score = value;
     }
-    
-    
 }

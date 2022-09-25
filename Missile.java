@@ -21,7 +21,12 @@ public class Missile extends Actor
         int x = getX();
         int y = getY();
         setLocation(x, y+2);
-        
-        
+        atWorldEdge();
+    }
+    
+    public void atWorldEdge() {
+        if(getY() > getWorld().getHeight() - 5) {
+            getWorld().removeObject(this);
+        }
     }
 }
