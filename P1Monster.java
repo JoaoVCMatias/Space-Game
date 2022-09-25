@@ -44,8 +44,7 @@ public class P1Monster extends Monster
         if(missile!=null){
             myWorld.removeObject(missile);
             myWorld.removeObject(monster);
-        }
-            
+        } 
     }
     
 }
