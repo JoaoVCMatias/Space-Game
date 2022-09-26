@@ -42,12 +42,12 @@ public class MyWorld extends World
         int value = var.nextInt(101);
         //System.out.println(value);
         if(var.nextInt(51) == 50)
-        if(value == 100)
-            addObject(new GoldMeteor(), var.nextInt(600),10);
-        else if(value < 60) 
-            addObject(new GreenMeteor(), var.nextInt(600),10);
-        else
-           addObject(new RedMeteor(), var.nextInt(600),10); 
+            if(value == 100)
+                addObject(new GoldMeteor(), var.nextInt(600),10);
+            else if(value < 60) 
+                addObject(new GreenMeteor(), var.nextInt(600),10);
+            else
+               addObject(new RedMeteor(), var.nextInt(600),10); 
     }
     
     public void updateScore(){
