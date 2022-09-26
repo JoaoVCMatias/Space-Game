@@ -38,12 +38,14 @@ public class P1Monster extends Monster
         
         World myWorld = getWorld();
         if(meteor!=null){
+            Meteor m = (Meteor)meteor;
+            int value = m.getValue();
             myWorld.removeObject(meteor);
-            setScore(getScore() + 10);
+            setScore(getScore() + value);
         }     
         if(missile!=null){
             myWorld.removeObject(missile);
-            myWorld.removeObject(monster);
+            setScore(getScore() - 5);
         } 
     }
     
