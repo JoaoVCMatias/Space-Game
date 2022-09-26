@@ -19,30 +19,18 @@ public class P1Monster extends Monster {
         int x = getX();
         int y = getY();
         getImage().scale(60, 60);
-        if (Greenfoot.isKeyDown("left")) {
+        if(x >= 435){
+            if (Greenfoot.isKeyDown("left")) {
             setLocation(x - 2, y);
-        } else if (Greenfoot.isKeyDown("right")) {
-            setLocation(x + 2, y);
+            }
+        } 
+        if (Greenfoot.isKeyDown("right")) {
+                setLocation(x + 2, y);
         }
+        
         // removeTouching(Meteor.class);
         collisionVerification();
     }
 
-    public void collisionVerification() {
-        Actor meteor = getOneIntersectingObject(Meteor.class);
-        Actor missile = getOneIntersectingObject(Missile.class);
-        Actor monster = getOneIntersectingObject(Monster.class);
 
-        World myWorld = getWorld();
-        if (meteor != null) {
-            Meteor m = (Meteor) meteor;
-            int value = m.getValue();
-            myWorld.removeObject(meteor);
-            setScore(getScore() + value);
-        }
-        if (missile != null) {
-            myWorld.removeObject(missile);
-            setScore(getScore() - 5);
-        }
-    }
 }

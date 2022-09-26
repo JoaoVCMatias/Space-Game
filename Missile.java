@@ -17,7 +17,7 @@ public class Missile extends Actor
     {
         // Add your action code here.
         setImage(missil.getCurrentImage());
-        getImage().scale(60,60);
+        getImage().scale(40,40);
         int x = getX();
         int y = getY();
         setLocation(x, y+2);

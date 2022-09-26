@@ -21,7 +21,7 @@ public class RedMeteor extends Meteor
     {
         // Add your action code here.
         setImage(redMeteor.getCurrentImage());
-        getImage().scale(60,60);
+        getImage().scale(30,30);
         int x = getX();
         int y = getY();
         setLocation(x, y+2);
