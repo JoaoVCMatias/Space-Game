@@ -6,27 +6,39 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Missile extends Actor
+public abstract class Missile  extends Actor
 {
-    GifImage missil = new GifImage("Missil.gif");
+    private GifImage missile;
+    private int damage;
     /**
      * Act - do whatever the Missile wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act()
-    {
-        // Add your action code here.
-        setImage(missil.getCurrentImage());
-        getImage().scale(40,40);
-        int x = getX();
-        int y = getY();
-        setLocation(x, y+2);
-        atWorldEdge();
-    }
     
+    public Missile(GifImage gifMissile){
+        missile = gifMissile;
+    }
     public void atWorldEdge() {
         if(getY() > getWorld().getHeight() - 5) {
             getWorld().removeObject(this);
         }
     }
+    
+    public int getDamage(){
+        return damage;
+    }
+    public void setDamage(int value){
+        damage = value;
+    }
+    
+    public void setMissile(){
+        setImage(missile.getCurrentImage());
+        getImage().scale(40,40);
+    }
+    protected void detonate(){
+        missile = new GifImage("Explosao.gif");
+        getWorld().addObject(new Explosion(),getX(),getY());
+    }
+    public abstract void move();
+        
 }

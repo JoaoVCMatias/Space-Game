@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Explosion
+comment0.text=\n\ Write\ a\ description\ of\ class\ Explosion\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=void\ run()
+comment2.params=
+comment2.target=Explosion()
+comment3.params=
+comment3.target=void\ act()
+comment3.text=\n\ Act\ -\ do\ whatever\ the\ Explosion\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment4.params=
+comment4.target=void\ setExplosion()
+numComments=5

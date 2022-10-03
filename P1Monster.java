@@ -8,29 +8,49 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class P1Monster extends Monster {
     GifImage monster = new GifImage("Modelo1.gif");
-
+ 
+    
+    public P1Monster(MyWorld word){
+        super.myWorld = word;
+    }
     /**
      * Act - do whatever the P1Monster wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() {
         // Add your action code here.
-        setImage(monster.getCurrentImage());
-        int x = getX();
-        int y = getY();
-        getImage().scale(60, 60);
-        if(x >= 435){
+        setMonster();
+        move();
+        collisionVerification();
+    }
+    public void move(){
+        super.localizationX = getX();
+        super.localizationY = getY();
+        
+        if(localizationX >= 435){
             if (Greenfoot.isKeyDown("left")) {
-            setLocation(x - 2, y);
+            setLocation(localizationX - 2, localizationY);
             }
         } 
         if (Greenfoot.isKeyDown("right")) {
-                setLocation(x + 2, y);
+                setLocation(localizationX + 2, localizationY);
+        }
+        if (Greenfoot.isKeyDown("up")) {
+                setLocation(localizationX, localizationY - 2);
+        }
+        if (Greenfoot.isKeyDown("down")) {
+                setLocation(localizationX, localizationY + 2);
+        }
+        if (Greenfoot.isKeyDown("space")) {
+                fire();
         }
         
-        // removeTouching(Meteor.class);
-        collisionVerification();
     }
+    public void setMonster(){
+        setImage(monster.getCurrentImage());     
+        getImage().scale(60, 60);
+    }
+
 
 
 }

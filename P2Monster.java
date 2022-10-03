@@ -9,6 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class P2Monster extends Monster
 {
     GifImage monster = new GifImage("Modelo2.gif");
+    
+    public P2Monster(MyWorld world){
+        super.myWorld = world;
+    }
     /**
      * Act - do whatever the P2Monster wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -16,19 +20,34 @@ public class P2Monster extends Monster
     public void act()
     {
         // Add your action code here.
-        setImage(monster.getCurrentImage());
-        int x = getX();
-        int y = getY();
-        getImage().scale(60, 60);
-        if(x <= 365){
+        setMonster();
+        move();
+        collisionVerification();
+    }
+    public void move(){
+        super.localizationX = getX();
+        super.localizationY = getY();
+        
+        if(localizationX <= 365){
             if (Greenfoot.isKeyDown("D")) {
-            setLocation(x + 2, y);
+            setLocation(localizationX + 2, localizationY);
             }
         }
         if (Greenfoot.isKeyDown("A")) {
-            setLocation(x - 2, y);
+            setLocation(localizationX - 2, localizationY);
         }
-        
-        collisionVerification();
+        if (Greenfoot.isKeyDown("W")) {
+            setLocation(localizationX, localizationY - 2);
+        }
+        if (Greenfoot.isKeyDown("S")) {
+            setLocation(localizationX, localizationY + 2);
+        }
+        if (Greenfoot.isKeyDown("Q")) {
+            fire();
+        }
+    }
+    public void setMonster(){
+        setImage(monster.getCurrentImage());     
+        getImage().scale(60, 60);
     }
 }

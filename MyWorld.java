@@ -8,7 +8,9 @@ import java.util.ArrayList;
  */
 public class MyWorld extends World
 {
-    ArrayList<Monster> players = new ArrayList<Monster>();
+    //private ArrayList<Monster> players = new ArrayList<Monster>();
+    private P1Monster p1Monster;
+    private P2Monster p2Monster;
     private int time = 60;
     
     Timer cronometro = new Timer();
@@ -26,11 +28,11 @@ public class MyWorld extends World
     {
         super(800, 600, 1);
         
-        P1Monster p1Monster = new P1Monster();
-        P2Monster p2Monster = new P2Monster();
+        p1Monster = new P1Monster(this);
+        p2Monster = new P2Monster(this);
         
-        players.add(p1Monster);
-        players.add(p2Monster);
+        //players.add(p1Monster);
+        //players.add(p2Monster);
         
         addObject(p1Monster, 550,550);
         addObject(p2Monster, 110,550);
@@ -42,18 +44,35 @@ public class MyWorld extends World
     {
         generateMissible();
         generateMeteor();
+        generateSatellite();
         updateScore();
         updateTime();
         checkTime();
     }
-    
-    public void generateMissible(){
+    private void generateBlueMissile(){
         Random var = new Random();
-        if(var.nextInt(100) < 5)
-            addObject(new Missile(), var.nextInt(800),10);
+        addObject(new MissileBlue(), var.nextInt(800),10);
+    }
+    private void generateGreenMissile(){
+        Random var = new Random();
+        MissileGreen missile = new MissileGreen(this);
+        addObject(missile, var.nextInt(800),10);
+        missile.selectMonster();
+
+    }
+    private void generateMissible(){
+        Random var = new Random();
+        if(var.nextInt(100) < 5){
+            if(var.nextInt(100) >60){
+                generateBlueMissile();
+            }else{
+                generateGreenMissile();
+            }
+        }
+            
     }
     
-    public void generateMeteor(){
+    private void generateMeteor(){
         Random var = new Random();
         int value = var.nextInt(101);
         //System.out.println(value);
@@ -65,21 +84,32 @@ public class MyWorld extends World
             else
                addObject(new RedMeteor(), var.nextInt(800),10); 
     }
-    
-    public void updateScore(){
+    private void generateSatellite(){
+        Random var = new Random();
+        if(var.nextInt(51) == 50)
+            addObject(new SatelliteGrey(), var.nextInt(800),10);
+
+    }
+    private void updateScore(){
         
-        showText("Score P1: " + players.get(0).getScore(), 700,20);
-        showText("Score P2: " + players.get(1).getScore(), 100,20);
+        showText("Score P1: " + p1Monster.getScore(), 700,20);
+        showText("Score P2: " + p2Monster.getScore(), 100,20);
         
     }
     
-    public void updateTime(){
+    private void updateTime(){
         showText("Time: " + time, 390,20);
     }
     
-    public void checkTime(){
+    private void checkTime(){
         if(time == 0){
             Greenfoot.stop();
         }
+    }
+    public Monster getMonster1(){
+        return p1Monster;
+    }
+    public Monster getMonster2(){
+        return p2Monster;
     }
 }
