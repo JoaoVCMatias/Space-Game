@@ -16,8 +16,9 @@ public abstract class Power extends Actor
         myWorld = word;
     }
     public void atWorldEdge() {
-        if(getY() == 0) {
-            getWorld().removeObject((FireBool)this);
+        if(this.getY() <= 10) {
+            //myWorld.removeObject((FireBool)this);
+            getWorld().removeObject(this);
         }
     }
     public abstract void move();

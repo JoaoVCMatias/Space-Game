@@ -12,13 +12,7 @@ public class MyWorld extends World
     private P1Monster p1Monster;
     private P2Monster p2Monster;
     private int time = 60;
-    
-    Timer cronometro = new Timer();
-    TimerTask tarefa = new TimerTask() {
-        public void run() {
-            time--;
-        }
-    };
+    private Time timer;
 
 
     /**
@@ -37,7 +31,7 @@ public class MyWorld extends World
         addObject(p1Monster, 550,550);
         addObject(p2Monster, 110,550);
         
-        cronometro.schedule(tarefa, 500, 500);
+        timer = new Time(60,500,500);
     }
     
     public void act()
@@ -98,7 +92,7 @@ public class MyWorld extends World
     }
     
     private void updateTime(){
-        showText("Time: " + time, 390,20);
+        showText("Time: " + timer.getTime(), 390,20);
     }
     
     private void checkTime(){

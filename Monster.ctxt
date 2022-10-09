@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=Monster
-comment0.text=\n\ \n
+comment0.text=\r\n\ \r\n
 comment1.params=
 comment1.target=int\ getScore()
+comment10.params=
+comment10.target=void\ fireBoolDecrement()
 comment2.params=value
 comment2.target=void\ setScore(int)
 comment3.params=
@@ -13,4 +15,10 @@ comment5.params=
 comment5.target=void\ setMonster()
 comment6.params=
 comment6.target=void\ fire()
-numComments=7
+comment7.params=
+comment7.target=boolean\ delayShot()
+comment8.params=
+comment8.target=boolean\ firePower()
+comment9.params=
+comment9.target=void\ fireBoolIncrement()
+numComments=11

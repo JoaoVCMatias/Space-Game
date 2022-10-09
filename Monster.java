@@ -11,6 +11,8 @@ public abstract class Monster extends Actor {
     protected int localizationY;
     protected int fireBool;
     public MyWorld myWorld;
+    private int shotDelay = 2;
+    private Time timeShot;
  
     public int getScore(){
         return score;
@@ -44,6 +46,7 @@ public abstract class Monster extends Actor {
         if(satellite != null){
             Satellite s = (Satellite)satellite;
             myWorld.removeObject(satellite);
+            fireBoolIncrement();
         }
     }
     public abstract void move();
@@ -51,7 +54,40 @@ public abstract class Monster extends Actor {
     public abstract void setMonster();
     
     public void fire(){
-        myWorld.addObject(new FireBool(myWorld), localizationX,localizationY-5);
+        if(!delayShot() && firePower()){
+            myWorld.addObject(new FireBool(myWorld), localizationX,localizationY-5);
+            fireBoolDecrement();
+        }
+            
+    }
+    
+    public boolean delayShot(){
+        if(timeShot == null){
+            timeShot = new Time(shotDelay,500,500);
+            return false;
+        }
+        if(timeShot.getTime() == 0){
+            timeShot = null;
+            return false;
+        }
+        return true;
+            
+    }
+    
+    private boolean firePower(){
+        if(fireBool <= 3 && fireBool > 0)
+            return true;
+        return false;
+    }
+    
+    private void fireBoolIncrement(){
+        if(fireBool < 3)
+            fireBool += 1;
+    }
+    
+    private void fireBoolDecrement(){
+        if(fireBool > 0)
+            fireBool -= 1;
     }
     
    

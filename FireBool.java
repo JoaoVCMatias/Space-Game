@@ -22,7 +22,10 @@ public class FireBool extends Power
         setMissile();
         move();
         atWorldEdge();
-        collisionVerification();
+        if(this.getWorld() != null)
+            collisionVerification();
+      
+        
         
     }
     public void move(){

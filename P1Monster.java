@@ -8,6 +8,7 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class P1Monster extends Monster {
     GifImage monster = new GifImage("Modelo1.gif");
+    
  
     
     public P1Monster(MyWorld word){
@@ -42,7 +43,7 @@ public class P1Monster extends Monster {
                 setLocation(localizationX, localizationY + 2);
         }
         if (Greenfoot.isKeyDown("space")) {
-                fire();
+            fire(); 
         }
         
     }

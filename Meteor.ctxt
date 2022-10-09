@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Meteor
-comment0.text=\n\ Write\ a\ description\ of\ class\ Meteor\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Meteor\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=value
 comment1.target=Meteor(int)
 comment2.params=
