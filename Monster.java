@@ -13,6 +13,7 @@ public abstract class Monster extends Actor {
     public MyWorld myWorld;
     private int shotDelay = 2;
     private Time timeShot;
+    private Sound sound = new Sound("Comendo.wav",50,1);
  
     public int getScore(){
         return score;
@@ -30,6 +31,7 @@ public abstract class Monster extends Actor {
         
         World myWorld = getWorld();
         if (meteor != null) {
+            sound.playMusic();
             Meteor m = (Meteor) meteor;
             int value = m.getValue();
             myWorld.removeObject(meteor);
@@ -37,6 +39,7 @@ public abstract class Monster extends Actor {
             
         }
         if (missile != null) {
+            sound.playMusic();
             Missile m = (Missile)missile;
             m.detonate();
             int damege = m.getDamage();
@@ -44,6 +47,7 @@ public abstract class Monster extends Actor {
             myWorld.removeObject(missile);
         }
         if(satellite != null){
+            sound.playMusic();
             Satellite s = (Satellite)satellite;
             myWorld.removeObject(satellite);
             fireBoolIncrement();
@@ -52,6 +56,12 @@ public abstract class Monster extends Actor {
     public abstract void move();
     
     public abstract void setMonster();
+    
+    public void checkTimeSound(){
+        if(sound.getTimeSound() <= 0){
+            sound.stopMusic();
+        }
+    }
     
     public void fire(){
         if(!delayShot() && firePower()){

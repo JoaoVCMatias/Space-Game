@@ -8,8 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class FireBool extends Power
 {
+       
     public FireBool(MyWorld word){
-        super(new GifImage("Tiro.gif"), word);
+        super(new GifImage("Tiro.gif"), word, new Sound("fireBoll.wav",50,1));
+        
     }
     /**
      * Act - do whatever the FireBool wants to do. This method is called whenever
@@ -22,12 +24,14 @@ public class FireBool extends Power
         setMissile();
         move();
         atWorldEdge();
+        checkTimeSound();
         if(this.getWorld() != null)
-            collisionVerification();
-      
-        
+            collisionVerification();       
         
     }
+    
+    
+    
     public void move(){
         setLocation(getX(), getY()-1);
     }

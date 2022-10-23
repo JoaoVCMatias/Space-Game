@@ -23,6 +23,7 @@ public class P1Monster extends Monster {
         setMonster();
         move();
         collisionVerification();
+        checkTimeSound();
     }
     public void move(){
         super.localizationX = getX();
@@ -51,7 +52,4 @@ public class P1Monster extends Monster {
         setImage(monster.getCurrentImage());     
         getImage().scale(60, 60);
     }
-
-
-
 }

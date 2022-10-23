@@ -14,12 +14,12 @@ public class MissileGreen extends Missile
      * Act - do whatever the MissileGreen wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private MyWorld myWord;
+    private MyWorld myWorld;
     private Monster selectedMonster;
     
-    public MissileGreen(MyWorld word){
+    public MissileGreen(MyWorld world){
         super(new GifImage("MissilVerde.gif"));
-        myWord = word;
+        myWorld = world;
         setDamage(5);
     }
     public void act()
@@ -28,6 +28,9 @@ public class MissileGreen extends Missile
         setMissile();
         move();
         atWorldEdge();
+             
+        
+        
     }
     
     public void move(){
@@ -35,6 +38,8 @@ public class MissileGreen extends Missile
        setLocation(getX(), getY()+1);
     }
     private void setLocalizationX(){
+        if(selectedMonster == null)
+            selectMonster();
         if(selectedMonster.localizationX > getX()){
             setLocation(getX()+1, getY());
         }else if(selectedMonster.localizationX < getX()){
@@ -42,17 +47,17 @@ public class MissileGreen extends Missile
         }
     }
     public void selectMonster(){
-        int p1x = myWord.getMonster1().localizationX;
-        int p2x = myWord.getMonster2().localizationX;
+        int p1x = myWorld.getMonster1().localizationX;
+        int p2x = myWorld.getMonster2().localizationX;
         int x = getX();
         
         int distanceP1 = x - p1x;
         int distanceP2 = (x - p2x) *-1;
          
         if(distanceP1 > distanceP2){
-            selectedMonster = myWord.getMonster1();
+            selectedMonster = myWorld.getMonster1();
         }else{
-            selectedMonster = myWord.getMonster2();
+            selectedMonster = myWorld.getMonster2();
         }
 
         

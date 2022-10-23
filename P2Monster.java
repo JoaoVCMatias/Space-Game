@@ -23,6 +23,7 @@ public class P2Monster extends Monster
         setMonster();
         move();
         collisionVerification();
+        checkTimeSound();
     }
     public void move(){
         super.localizationX = getX();

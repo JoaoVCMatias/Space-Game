@@ -13,6 +13,7 @@ public class MyWorld extends World
     private P2Monster p2Monster;
     private int time = 60;
     private Time timer;
+    private Sound sound = new Sound("MusicaEspacial01.wav",25);
 
 
     /**
@@ -32,6 +33,8 @@ public class MyWorld extends World
         addObject(p2Monster, 110,550);
         
         timer = new Time(60,500,500);
+        //sound.playMusic();
+        
     }
     
     public void act()
@@ -51,8 +54,6 @@ public class MyWorld extends World
         Random var = new Random();
         MissileGreen missile = new MissileGreen(this);
         addObject(missile, var.nextInt(800),10);
-        missile.selectMonster();
-
     }
     private void generateMissible(){
         Random var = new Random();

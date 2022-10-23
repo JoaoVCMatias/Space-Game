@@ -11,16 +11,13 @@ import java.util.Timer;
 public class Explosion extends Actor
 {
     private GifImage explosion = new GifImage("Explosao.gif");
-    private int time = 1;
+    private Sound sound = new Sound("Explosao.wav");
+    private Time time;
     
-    Timer cronometro = new Timer();
-    TimerTask tarefa = new TimerTask() {
-        public void run() {
-            time--;
-        }
-    };
+
     public Explosion(){
-        cronometro.schedule(tarefa, 500, 500);
+        sound.playMusic();
+        time = new Time(1,500,500);
     }
     /**
      * Act - do whatever the Explosion wants to do. This method is called whenever
@@ -31,7 +28,8 @@ public class Explosion extends Actor
         // Add your action code here.
         setExplosion();
         
-        if(time == 0){
+        if(time.getTime() == 0){
+            sound.stopMusic();
             getWorld().removeObject(this);
         }
     }
