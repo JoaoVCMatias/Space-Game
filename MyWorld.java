@@ -22,7 +22,6 @@ public class MyWorld extends World
     public MyWorld()
     {
         super(800, 600, 1);
-        
         p1Monster = new P1Monster(this);
         p2Monster = new P2Monster(this);
         
@@ -32,7 +31,7 @@ public class MyWorld extends World
         addObject(p1Monster, 550,550);
         addObject(p2Monster, 110,550);
         
-        timer = new Time(60,500,500);
+        timer = new Time(5,500,500);
         //sound.playMusic();
         
     }
@@ -98,8 +97,10 @@ public class MyWorld extends World
     
     private void checkTime(){
         if(time == 0){
-            Greenfoot.stop();
+             addObject(new NextLevel(this), 20, 20);
+            
         }
+        
     }
     public Monster getMonster1(){
         return p1Monster;

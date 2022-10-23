@@ -39,7 +39,6 @@ public abstract class Monster extends Actor {
             
         }
         if (missile != null) {
-            sound.playMusic();
             Missile m = (Missile)missile;
             m.detonate();
             int damege = m.getDamage();
