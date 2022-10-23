@@ -3,6 +3,7 @@ class.Explosion.image=Explosao.gif
 class.FireBool.image=Tiro.gif
 class.GoldMeteor.image=MeteoroDourado.gif
 class.GreenMeteor.image=MeteoroVerde.gif
+class.Menu.image=MenuImagem.png
 class.Meteor.image=rock.png
 class.Missile.image=rocket.png
 class.MissileBlue.image=MissilAzul.gif

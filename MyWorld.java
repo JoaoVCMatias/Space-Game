@@ -13,7 +13,7 @@ public class MyWorld extends World
     private P2Monster p2Monster;
     private int time = 60;
     private Time timer;
-    private Sound sound = new Sound("MusicaEspacial01.wav",25);
+    private Sound sound;
 
 
     /**
@@ -30,20 +30,42 @@ public class MyWorld extends World
         
         addObject(p1Monster, 550,550);
         addObject(p2Monster, 110,550);
+        //addObject(new NextLevel(this), 20, 20);
         
-        timer = new Time(5,500,500);
-        //sound.playMusic();
+        
+        
+        
         
     }
     
     public void act()
     {
-        generateMissible();
-        generateMeteor();
-        generateSatellite();
-        updateScore();
-        updateTime();
+        initializeTime();
+        initializeSound();
+        if(timer.getTime() > 0){
+            generateMissible();
+            generateMeteor();
+            generateSatellite();
+            updateScore();
+            
+        
+        }
         checkTime();
+        
+        updateTime();
+        
+    }
+    
+    public void initializeTime(){
+        if(timer == null)
+            timer = new Time(time,500,500);
+    }
+    
+    public void initializeSound(){
+        if(sound == null){
+            sound = new Sound("MusicaEspacial01.wav",25);
+            sound.playMusic();
+        }
     }
     private void generateBlueMissile(){
         Random var = new Random();
@@ -96,8 +118,9 @@ public class MyWorld extends World
     }
     
     private void checkTime(){
-        if(time == 0){
-             addObject(new NextLevel(this), 20, 20);
+        if(timer.getTime() == 0){
+            sound.stopMusic();
+            addObject(new NextLevel(this), 400, 300);
             
         }
         
@@ -108,4 +131,9 @@ public class MyWorld extends World
     public Monster getMonster2(){
         return p2Monster;
     }
+    
+    public int getWorldTime(){
+        return timer.getTime();
+    }
+        
 }

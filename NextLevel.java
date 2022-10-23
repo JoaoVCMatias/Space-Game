@@ -20,6 +20,8 @@ public class NextLevel extends Button
     public void act()
     {
         // Add your action code here.
+        getImage().scale(200, 200);
+        
         if(Greenfoot.mouseClicked(this))
         {
             Greenfoot.setWorld(new Menu());

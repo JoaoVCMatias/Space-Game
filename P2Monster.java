@@ -11,7 +11,7 @@ public class P2Monster extends Monster
     GifImage monster = new GifImage("Modelo2.gif");
     
     public P2Monster(MyWorld world){
-        super.myWorld = world;
+        super(world);
     }
     /**
      * Act - do whatever the P2Monster wants to do. This method is called whenever

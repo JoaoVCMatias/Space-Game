@@ -14,7 +14,12 @@ public abstract class Monster extends Actor {
     private int shotDelay = 2;
     private Time timeShot;
     private Sound sound = new Sound("Comendo.wav",50,1);
- 
+    
+    public Monster(MyWorld myWorld){
+        this.myWorld = myWorld;
+    
+    }
+    
     public int getScore(){
         return score;
     }
@@ -29,28 +34,32 @@ public abstract class Monster extends Actor {
         Actor monster = getOneIntersectingObject(Monster.class);  
         Actor satellite = getOneIntersectingObject(Satellite.class);
         
-        World myWorld = getWorld();
-        if (meteor != null) {
-            sound.playMusic();
-            Meteor m = (Meteor) meteor;
-            int value = m.getValue();
-            myWorld.removeObject(meteor);
-            setScore(getScore() + value);
+        
+        if(this.myWorld.getWorldTime() > 0){
+            if (meteor != null) {
+                sound.playMusic();
+                Meteor m = (Meteor) meteor;
+                int value = m.getValue();
+                myWorld.removeObject(meteor);
+                setScore(getScore() + value);
             
+            }
+            if (missile != null) {
+                Missile m = (Missile)missile;
+                m.detonate();
+                int damege = m.getDamage();
+                setScore(getScore() - damege);
+                myWorld.removeObject(missile);
+            }
+            if(satellite != null){
+                sound.playMusic();
+                Satellite s = (Satellite)satellite;
+                myWorld.removeObject(satellite);
+                fireBoolIncrement();
+            }
+        
         }
-        if (missile != null) {
-            Missile m = (Missile)missile;
-            m.detonate();
-            int damege = m.getDamage();
-            setScore(getScore() - damege);
-            myWorld.removeObject(missile);
-        }
-        if(satellite != null){
-            sound.playMusic();
-            Satellite s = (Satellite)satellite;
-            myWorld.removeObject(satellite);
-            fireBoolIncrement();
-        }
+        
     }
     public abstract void move();
     

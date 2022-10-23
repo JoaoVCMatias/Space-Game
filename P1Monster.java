@@ -11,8 +11,8 @@ public class P1Monster extends Monster {
     
  
     
-    public P1Monster(MyWorld word){
-        super.myWorld = word;
+    public P1Monster(MyWorld world){
+        super(world);
     }
     /**
      * Act - do whatever the P1Monster wants to do. This method is called whenever
