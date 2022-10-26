@@ -14,12 +14,11 @@ public class MissileGreen extends Missile
      * Act - do whatever the MissileGreen wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private MyWorld myWorld;
+    
     private Monster selectedMonster;
     
-    public MissileGreen(MyWorld world){
-        super(new GifImage("MissilVerde.gif"));
-        myWorld = world;
+    public MissileGreen(MyWorld myWorld){
+        super(new GifImage("MissilVerde.gif"),myWorld);
         setDamage(5);
     }
     public void act()

@@ -20,6 +20,8 @@ public class Meteor extends Actor
     
     public void atWorldEdge() {
         if(getY() > getWorld().getHeight() - 5) {
+            MyWorld myWorld = (MyWorld)getWorld();
+            myWorld.decrementMeteor();
             getWorld().removeObject(this);
         }
     }

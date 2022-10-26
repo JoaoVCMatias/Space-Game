@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Level
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Level\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=value1\ value2\ value3\ value4\ value5\ value6\ value7\ value8\ value9\ value10
+comment1.target=Level(int,\ int,\ int,\ int,\ int,\ int,\ int,\ int,\ int,\ int)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Level\r\n
+comment2.params=
+comment2.target=Level\ generateLevel1()
+comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \r\n\ @param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ \ the\ sum\ of\ x\ and\ y\ \r\n
+numComments=3

@@ -10,17 +10,21 @@ public abstract class Missile  extends Actor
 {
     private GifImage missile;
     private int damage;
+    protected MyWorld myWorld;
     /**
      * Act - do whatever the Missile wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    public Missile(GifImage gifMissile){
+    public Missile(GifImage gifMissile, MyWorld myWorld){
         missile = gifMissile;
+        this.myWorld = myWorld;
     }
     public void atWorldEdge() {
         if(getY() > getWorld().getHeight() - 5) {
-            getWorld().removeObject(this);
+            System.out.println("dfed");
+            myWorld.removeObject(this);
+            myWorld.decrementMissile();
         }
     }
     

@@ -12,8 +12,8 @@ public class MissileBlue extends Missile
      * Act - do whatever the MissileBlue wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public MissileBlue(){
-        super(new GifImage("MissilAzul.gif"));
+    public MissileBlue(MyWorld myWorld){
+        super(new GifImage("MissilAzul.gif"),myWorld);
         setDamage(5);
     }
     public void act()

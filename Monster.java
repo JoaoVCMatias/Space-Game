@@ -42,6 +42,7 @@ public abstract class Monster extends Actor {
                 int value = m.getValue();
                 myWorld.removeObject(meteor);
                 setScore(getScore() + value);
+                myWorld.decrementMeteor();
             
             }
             if (missile != null) {
@@ -50,12 +51,14 @@ public abstract class Monster extends Actor {
                 int damege = m.getDamage();
                 setScore(getScore() - damege);
                 myWorld.removeObject(missile);
+                myWorld.decrementMissile();
             }
             if(satellite != null){
                 sound.playMusic();
                 Satellite s = (Satellite)satellite;
                 myWorld.removeObject(satellite);
                 fireBoolIncrement();
+                myWorld.decrementSatellite();
             }
         
         }

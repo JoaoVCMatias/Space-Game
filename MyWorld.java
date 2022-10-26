@@ -14,25 +14,22 @@ public class MyWorld extends World
     private int time = 60;
     private Time timer;
     private Sound sound;
+    private Level level;
 
 
     /**
      * Constructor for objects of class MyWorld.
      */
-    public MyWorld()
+    public MyWorld(Level level)
     {
         super(800, 600, 1);
         p1Monster = new P1Monster(this);
         p2Monster = new P2Monster(this);
         
-        //players.add(p1Monster);
-        //players.add(p2Monster);
-        
         addObject(p1Monster, 550,550);
         addObject(p2Monster, 110,550);
-        //addObject(new NextLevel(this), 20, 20);
-        
-        
+       
+        this.level = level;      
         
         
         
@@ -47,8 +44,6 @@ public class MyWorld extends World
             generateMeteor();
             generateSatellite();
             updateScore();
-            
-        
         }
         checkTime();
         
@@ -64,12 +59,13 @@ public class MyWorld extends World
     public void initializeSound(){
         if(sound == null){
             sound = new Sound("MusicaEspacial01.wav",25);
+            sound.setVolume(100);
             sound.playMusic();
         }
     }
     private void generateBlueMissile(){
         Random var = new Random();
-        addObject(new MissileBlue(), var.nextInt(800),10);
+        addObject(new MissileBlue(this), var.nextInt(800),10);
     }
     private void generateGreenMissile(){
         Random var = new Random();
@@ -78,12 +74,14 @@ public class MyWorld extends World
     }
     private void generateMissible(){
         Random var = new Random();
-        if(var.nextInt(100) < 5){
-            if(var.nextInt(100) >60){
+        System.out.println(level.countMissile);
+        if(var.nextInt(100) < 5 && level.countMissile < level.maxMissile){
+            if(var.nextInt(100) > level.probaMissileBlue){
                 generateBlueMissile();
             }else{
                 generateGreenMissile();
             }
+            incrementMissile();
         }
             
     }
@@ -91,19 +89,24 @@ public class MyWorld extends World
     private void generateMeteor(){
         Random var = new Random();
         int value = var.nextInt(101);
-        //System.out.println(value);
-        if(var.nextInt(51) == 50)
-            if(value == 100)
+        
+        if(var.nextInt(100) <= level.probMeteor && level.countMeteor < level.maxMeteor){
+        
+            if(value <= level.probaGoldMeteor)
                 addObject(new GoldMeteor(), var.nextInt(800),10);
-            else if(value < 60) 
+            else if(value <= level.probaGreenMeteor) 
                 addObject(new GreenMeteor(), var.nextInt(800),10);
             else
-               addObject(new RedMeteor(), var.nextInt(800),10); 
+               addObject(new RedMeteor(), var.nextInt(800),10);
+            incrementMeteor();
+        }
+            
     }
     private void generateSatellite(){
         Random var = new Random();
-        if(var.nextInt(51) == 50)
-            addObject(new SatelliteGrey(), var.nextInt(800),10);
+        if(var.nextInt(51) == 50 && level.countSatellite < level.maxSatellite)
+            addObject(new SatelliteGrey(this), var.nextInt(800),10);
+            incrementSatellite();
 
     }
     private void updateScore(){
@@ -134,6 +137,30 @@ public class MyWorld extends World
     
     public int getWorldTime(){
         return timer.getTime();
+    }
+    
+    public void incrementMeteor(){
+        level.countMeteor +=1;
+    }
+    
+    public void decrementMeteor(){
+        level.countMeteor -=1;
+    }
+    
+    public void incrementMissile(){
+        level.countMissile +=1;
+    }
+    
+    public void decrementMissile(){
+        level.countMissile -=1;
+    }
+    
+    public void incrementSatellite(){
+        level.countSatellite +=1;
+    }
+    
+    public void decrementSatellite(){
+        level.countSatellite -=1;
     }
         
 }

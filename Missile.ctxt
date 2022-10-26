@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Missile
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Missile\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=gifMissile
-comment1.target=Missile(GifImage)
+comment1.params=gifMissile\ myWorld
+comment1.target=Missile(GifImage,\ MyWorld)
 comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Missile\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment2.params=
 comment2.target=void\ atWorldEdge()
