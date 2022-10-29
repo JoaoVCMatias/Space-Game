@@ -1,27 +1,31 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Play here.
+ * Write a description of class Info here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Play extends Button
+public class Info extends Button
 {
-    public Play(MyWorld myWorld){
+    public Info(MyWorld myWorld){
         super(myWorld);
+        myWorld.pauseTime();
     }
+    
     /**
-     * Act - do whatever the Play wants to do. This method is called whenever
+     * Act - do whatever the Info wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
         // Add your action code here.
+        getImage().scale(50, 50);
+        
         if(Greenfoot.mouseClicked(this))
         {
-            Greenfoot.setWorld(getLevel());
-              
+            getLevel().pauseTime();
+            Greenfoot.setWorld(new Information(getLevel())); 
         }
     }
 }

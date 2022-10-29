@@ -11,6 +11,10 @@ public class NextLevel extends Button
     public NextLevel(MyWorld myWorld){
         super(myWorld);
     }
+    
+    public NextLevel(World menu){
+        super(menu);
+    }
         
         
     /**
@@ -24,7 +28,15 @@ public class NextLevel extends Button
         
         if(Greenfoot.mouseClicked(this))
         {
-            Greenfoot.setWorld(new Menu());
+            if(getMenu() != null){
+                Greenfoot.setWorld(getMenu());
+            }   
+            else if(getLevel() != null){
+                Greenfoot.setWorld(getLevel());
+                getLevel().startTime();
+            }
+                
+                
               
         }
     }

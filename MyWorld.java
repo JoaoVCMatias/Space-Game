@@ -11,7 +11,7 @@ public class MyWorld extends World
     //private ArrayList<Monster> players = new ArrayList<Monster>();
     private P1Monster p1Monster;
     private P2Monster p2Monster;
-    private int time = 60;
+    private int time = 20;
     private Time timer;
     private Sound sound;
     private Level level;
@@ -29,7 +29,9 @@ public class MyWorld extends World
         addObject(p1Monster, 550,550);
         addObject(p2Monster, 110,550);
        
-        this.level = level;      
+        this.level = level;
+        
+        addObject(new Info(this), 25, 150);
         
         
         
@@ -38,7 +40,8 @@ public class MyWorld extends World
     public void act()
     {
         initializeTime();
-        initializeSound();
+        //initializeSound();
+        
         if(timer.getTime() > 0){
             generateMissible();
             generateMeteor();
@@ -122,11 +125,21 @@ public class MyWorld extends World
     
     private void checkTime(){
         if(timer.getTime() == 0){
-            sound.stopMusic();
-            addObject(new NextLevel(this), 400, 300);
+            if(sound != null)
+                sound.stopMusic();
+            addObject(new NextLevel(new Menu()), 400, 300);
             
         }
         
+    }
+    
+    public void pauseTime(){
+        if(timer != null)
+            timer.pause();
+    }
+    public void startTime(){
+        if(timer != null)
+            timer.start();
     }
     public Monster getMonster1(){
         return p1Monster;

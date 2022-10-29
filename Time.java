@@ -11,12 +11,13 @@ public class Time
 {
     // instance variables - replace the example below with your own
     private int time;
+    private boolean pause;
     
     
     Timer cronometro = new Timer();
     TimerTask tarefa = new TimerTask() {
         public void run() {
-            if(time > 0)
+            if(time > 0 && !pause)
                 time--;
         }
     };
@@ -32,6 +33,14 @@ public class Time
     
     public int getTime(){
         return time;
+    }
+    
+    public void pause(){
+        this.pause = true;
+    }
+    
+    public void start(){
+        this.pause = false;
     }
 
     
