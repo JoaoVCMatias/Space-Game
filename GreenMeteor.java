@@ -10,8 +10,8 @@ public class GreenMeteor extends Meteor
 {
     GifImage greenMeteor = new GifImage("MeteoroVerde.gif");
     
-    public GreenMeteor(){
-        super(5);
+    public GreenMeteor(MyWorld myWorld){
+        super(5, myWorld);
     }
     /**
      * Act - do whatever the GreenMeteor wants to do. This method is called whenever
@@ -20,11 +20,16 @@ public class GreenMeteor extends Meteor
     public void act()
     {
         // Add your action code here.
-        setImage(greenMeteor.getCurrentImage());
-        getImage().scale(30,30);
-        int x = getX();
-        int y = getY();
-        setLocation(x, y+2);
-        atWorldEdge();
+        //System.out.println(getMyWorld().getWorldTime());
+        if(getMyWorld().getWorldTime() > 0){
+            setImage(greenMeteor.getCurrentImage());
+            getImage().scale(30,30);
+            int x = getX();
+            int y = getY();
+            setLocation(x, y+2);
+            atWorldEdge();
+        
+        }
+        
     }
 }

@@ -9,9 +9,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Meteor extends Actor
 {
     private int value;
+    private MyWorld myWorld;
     
-    public Meteor(int value){
+    public Meteor(int value, MyWorld myWorld){
         this.value = value;
+        this.myWorld = myWorld;
     }
     
     public int getValue(){
@@ -19,10 +21,13 @@ public class Meteor extends Actor
     }
     
     public void atWorldEdge() {
-        if(getY() > getWorld().getHeight() - 5) {
-            MyWorld myWorld = (MyWorld)getWorld();
+        if(getY() > myWorld.getHeight() - 5) {
             myWorld.decrementMeteor();
-            getWorld().removeObject(this);
+            myWorld.removeObject(this);
         }
+    }
+    
+    public MyWorld getMyWorld(){
+        return myWorld;
     }
 }

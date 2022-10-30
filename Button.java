@@ -6,10 +6,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Button extends Actor
+public abstract class Button extends Actor
 {
     private MyWorld myWorld;
     private World menu;
+    
+    public abstract void click();
     
     public Button(MyWorld myWorld){
         this.myWorld = myWorld;

@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class NextLevel extends Button
 {
+    private Time time;
     public NextLevel(MyWorld myWorld){
         super(myWorld);
     }
@@ -25,19 +26,35 @@ public class NextLevel extends Button
     {
         // Add your action code here.
         getImage().scale(200, 200);
+        click();
         
-        if(Greenfoot.mouseClicked(this))
-        {
+    }
+    
+    public void click(){
+        if(Greenfoot.mouseClicked(this)){
             if(getMenu() != null){
                 Greenfoot.setWorld(getMenu());
             }   
             else if(getLevel() != null){
                 Greenfoot.setWorld(getLevel());
                 getLevel().startTime();
-            }
-                
-                
+            }           
               
         }
+    }
+    
+    public void click(MyWorld myWorld){
+                
+        //myWorld = null;
+        if(getMenu() != null){
+            Greenfoot.setWorld(getMenu());
+        }   
+        else if(getLevel() != null){
+            Greenfoot.setWorld(getLevel());
+            getLevel().startTime();
+        }
+        //getLevel().startTime();
+        
+    
     }
 }

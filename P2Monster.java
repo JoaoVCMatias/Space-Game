@@ -34,15 +34,22 @@ public class P2Monster extends Monster
             setLocation(localizationX + 2, localizationY);
             }
         }
-        if (Greenfoot.isKeyDown("A")) {
-            setLocation(localizationX - 2, localizationY);
+        if(localizationX >= 25){
+            if (Greenfoot.isKeyDown("A")) {
+                setLocation(localizationX - 2, localizationY);
+            }
         }
-        if (Greenfoot.isKeyDown("W")) {
+        if(localizationY > 20){
+           if (Greenfoot.isKeyDown("W")) {
             setLocation(localizationX, localizationY - 2);
+            } 
         }
-        if (Greenfoot.isKeyDown("S")) {
-            setLocation(localizationX, localizationY + 2);
+        if(localizationY < 565){
+            if (Greenfoot.isKeyDown("S")) {
+                setLocation(localizationX, localizationY + 2);
+            }
         }
+        
         if (Greenfoot.isKeyDown("Q")) {
             fire();
         }

@@ -24,9 +24,12 @@ public class MissileGreen extends Missile
     public void act()
     {
         // Add your action code here.
-        setMissile();
-        move();
-        atWorldEdge();
+        //System.out.println(myWorld.getWorldTime());
+        if(myWorld.getWorldTime() > 0){
+            setMissile();
+            move();
+            atWorldEdge();
+        }
              
         
         

@@ -1,20 +1,18 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Info here.
+ * Write a description of class SmallQuit here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Info extends Button
+public class SmallQuit extends Button
 {
-    public Info(MyWorld myWorld){
+    public SmallQuit(MyWorld myWorld){
         super(myWorld);
-        myWorld.pauseTime();
     }
-    
     /**
-     * Act - do whatever the Info wants to do. This method is called whenever
+     * Act - do whatever the SmallQuit wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
@@ -22,14 +20,13 @@ public class Info extends Button
         // Add your action code here.
         getImage().scale(50, 50);
         click();
-        
     }
     
     public void click(){
         if(Greenfoot.mouseClicked(this))
         {
-            getLevel().pauseTime();
-            Greenfoot.setWorld(new Information(getLevel())); 
+            System.exit(0);
+              
         }
     }
 }

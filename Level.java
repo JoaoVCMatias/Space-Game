@@ -1,3 +1,6 @@
+import java.util.*;
+import java.util.stream.Collectors;
+
 /**
  * Write a description of class Level here.
  * 
@@ -7,6 +10,7 @@
 public class Level  
 {
     // instance variables - replace the example below with your own
+    public int idLevel;
     public int probaMissileBlue;
     public int probaMissileGreen;
     
@@ -24,25 +28,27 @@ public class Level
     public int maxMeteor;
     public int maxMissile;
     public int maxSatellite;
+    
 
     /**
      * Constructor for objects of class Level
      */
-    private Level(int value1, int value2, int value3, int value4, int value5, int value6, int value7, int value8, int value9, int value10)
+    private Level(ArrayList<Integer> levelProp)
     {
-        probaMissileBlue = value1;
-        probaMissileGreen = value2;
+        idLevel = levelProp.get(0);
+        probaMissileBlue = levelProp.get(1);
+        probaMissileGreen = levelProp.get(2);
         
-        probMeteor = value3;
-        probaGoldMeteor = value4;
-        probaGreenMeteor = value5;
-        probaRedMeteor = value6;
+        probMeteor = levelProp.get(3);
+        probaGoldMeteor = levelProp.get(4);
+        probaGreenMeteor = levelProp.get(5);
+        probaRedMeteor = levelProp.get(6);
     
-        probaSatellite = value7;
+        probaSatellite = levelProp.get(7);
         
-        maxMeteor = value8;
-        maxMissile = value9;
-        maxSatellite = value10;
+        maxMeteor = levelProp.get(8);
+        maxMissile = levelProp.get(9);
+        maxSatellite = levelProp.get(10);
     }
 
     /**
@@ -52,6 +58,34 @@ public class Level
      * @return     the sum of x and y 
      */
     public static Level generateLevel1(){
-        return new Level(80,50,5,10,50,60,20,10,15,10);
+        ArrayList<Integer> levelProp = new ArrayList<Integer>();
+        //idLevel, pMB, pMG, pM, pGM, pGM,pRM, pS, mMe, mMi, mS
+        int[] intArray = {1,60,50,5,10,50,60,20,10,15,10};
+
+        
+        levelProp = (ArrayList<Integer>) Arrays.stream(intArray).boxed().collect(Collectors.toList());;
+        return new Level(levelProp);
     }
+    
+    public static Level generateLevel2(){
+        ArrayList<Integer> levelProp = new ArrayList<Integer>();
+        //idLevel, pMB, pMG, pM, pGM, pGM,pRM, pS, mMe, mMi, mS
+        int[] intArray = {2,60,50,5,10,50,60,20,10,15,10};
+
+        
+        levelProp = (ArrayList<Integer>) Arrays.stream(intArray).boxed().collect(Collectors.toList());;
+        return new Level(levelProp);
+    }
+    
+    public static Level generateLevel3(){
+        ArrayList<Integer> levelProp = new ArrayList<Integer>();
+        //idLevel, pMB, pMG, pM, pGM, pGM,pRM, pS, mMe, mMi, mS
+        int[] intArray = {3,40,50,10,20,5,60,20,10,15,10};
+
+        
+        levelProp = (ArrayList<Integer>) Arrays.stream(intArray).boxed().collect(Collectors.toList());;
+        return new Level(levelProp);
+    }
+    
+
 }

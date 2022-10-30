@@ -10,8 +10,8 @@ public class RedMeteor extends Meteor
 {
     GifImage redMeteor = new GifImage("MeteoroVemelho.gif");
     
-    public RedMeteor(){
-        super(10);
+    public RedMeteor(MyWorld myWorld){
+        super(10, myWorld);
     }
     /**
      * Act - do whatever the RedMeteor wants to do. This method is called whenever
@@ -20,11 +20,16 @@ public class RedMeteor extends Meteor
     public void act()
     {
         // Add your action code here.
-        setImage(redMeteor.getCurrentImage());
-        getImage().scale(30,30);
-        int x = getX();
-        int y = getY();
-        setLocation(x, y+2);
-        atWorldEdge();
+        //System.out.println(getMyWorld().getWorldTime());
+        if(getMyWorld().getWorldTime() > 0){
+            setImage(redMeteor.getCurrentImage());
+            getImage().scale(30,30);
+            int x = getX();
+            int y = getY();
+            setLocation(x, y+2);
+            atWorldEdge();
+        
+        }
+        
     }
 }

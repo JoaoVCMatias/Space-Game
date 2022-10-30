@@ -20,4 +20,8 @@ public abstract class Satellite extends Actor
         }
     }
     public abstract void move();
+    
+    public MyWorld getMyWorld(){
+        return myWorld;
+    }
 }

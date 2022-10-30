@@ -18,10 +18,14 @@ public class Play extends Button
     public void act()
     {
         // Add your action code here.
-        if(Greenfoot.mouseClicked(this))
-        {
-            Greenfoot.setWorld(getLevel());
-              
+        click();
+    }
+    
+    public void click(){
+        if(Greenfoot.mouseClicked(this)){
+            Greenfoot.setWorld(getLevel());     
         }
     }
+        
+        
 }

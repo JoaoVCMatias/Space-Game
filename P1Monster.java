@@ -34,14 +34,20 @@ public class P1Monster extends Monster {
             setLocation(localizationX - 2, localizationY);
             }
         } 
-        if (Greenfoot.isKeyDown("right")) {
+        if(localizationX <= 775){
+            if (Greenfoot.isKeyDown("right")) {
                 setLocation(localizationX + 2, localizationY);
+            }
         }
-        if (Greenfoot.isKeyDown("up")) {
+        if(localizationY > 20){
+            if (Greenfoot.isKeyDown("up")) {
                 setLocation(localizationX, localizationY - 2);
+            }
         }
-        if (Greenfoot.isKeyDown("down")) {
+        if(localizationY < 565){
+            if (Greenfoot.isKeyDown("down")) {
                 setLocation(localizationX, localizationY + 2);
+            }
         }
         if (Greenfoot.isKeyDown("space")) {
             fire(); 

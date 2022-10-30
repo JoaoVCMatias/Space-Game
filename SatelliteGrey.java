@@ -20,9 +20,12 @@ public class SatelliteGrey extends Satellite
     public void act()
     {
         // Add your action code here.
-        setSatellite();
-        move();
-        atWorldEdge();
+        if(getMyWorld().getWorldTime() > 0){
+            setSatellite();
+            move();
+            atWorldEdge();
+        }
+        
     }
     public void move(){
        setLocation(getX(), getY()+1);
