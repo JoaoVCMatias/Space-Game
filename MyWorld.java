@@ -11,7 +11,7 @@ public class MyWorld extends World
     //private ArrayList<Monster> players = new ArrayList<Monster>();
     private P1Monster p1Monster;
     private P2Monster p2Monster;
-    private int time = 10;
+    private int time = 60;
     private Time timer;
     private Sound sound;
     private Level level;
@@ -160,19 +160,23 @@ public class MyWorld extends World
         if(timer.getTime() == 0){
             if(sound != null)
                 sound.stopMusic();
-            if(level.idLevel == 1)
-                nextLevel = new NextLevel(new MyWorld(Level.generateLevel2()));
-            if(level.idLevel == 2)
-                nextLevel = new NextLevel(new MyWorld(Level.generateLevel3()));
-            if(level.idLevel == 3)
-                nextLevel = new NextLevel(new Menu());
+            if(nextLevel == null){
+                if(level.idLevel == 1)
+                    nextLevel = new NextLevel(new MyWorld(Level.generateLevel2()));
+                if(level.idLevel == 2)
+                    nextLevel = new NextLevel(new MyWorld(Level.generateLevel3()));
+                if(level.idLevel == 3)
+                    nextLevel = new NextLevel(new Menu());
+                    
+                addObject(nextLevel, 400, 300);
+            }
+                
+        }  
                 
             
-            addObject(nextLevel, 400, 300);
-            
-        }
-        
     }
+        
+    
     
     public void pauseTime(){
         if(timer != null)

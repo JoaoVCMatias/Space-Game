@@ -22,7 +22,6 @@ public abstract class Missile  extends Actor
     }
     public void atWorldEdge() {
         if(getY() > getWorld().getHeight() - 5) {
-            System.out.println("dfed");
             myWorld.removeObject(this);
             myWorld.decrementMissile();
         }
