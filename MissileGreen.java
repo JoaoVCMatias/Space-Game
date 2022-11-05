@@ -25,10 +25,11 @@ public class MissileGreen extends Missile
     {
         // Add your action code here.
         //System.out.println(myWorld.getWorldTime());
-        if(myWorld.getWorldTime() > 0){
+        if(this != null && myWorld.getWorldTime() > 0){
             setMissile();
             move();
             atWorldEdge();
+            collisionVerification();
         }
              
         
@@ -62,6 +63,25 @@ public class MissileGreen extends Missile
             selectedMonster = myWorld.getMonster2();
         }
 
+        
+    }
+    
+    public void collisionVerification() {
+        Actor missile = getOneIntersectingObject(Missile.class);
+        
+        
+        if(this.myWorld.getWorldTime() > 0){
+            if (missile != null) {
+                System.out.println(getX() + getY());
+                //myWorld.addObject(new MissileRed(myWorld), getX(), getY());
+                myWorld.removeObject(missile);
+                myWorld.removeObject(this);
+                myWorld.decrementMissile();
+                
+                
+            }
+        
+        }
         
     }
 }
