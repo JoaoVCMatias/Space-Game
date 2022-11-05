@@ -16,16 +16,7 @@ public class MissileBlue extends Missile
         super(new GifImage("MissilAzul.gif"),myWorld);
         setDamage(5);
     }
-    public void act()
-    {
-        // Add your action code here.
-        //System.out.println(myWorld.getWorldTime());
-        if(myWorld.getWorldTime() > 0){
-            setMissile();
-            move();
-            atWorldEdge();
-        }
-    }
+    
     public void move(){
         int x = getX();
         int y = getY();

@@ -15,6 +15,16 @@ public abstract class Monster extends Actor {
     private Time timeShot;
     private Sound sound = new Sound("Comendo.wav",50,1);
     
+    
+    public void act() {
+        // Add your action code here.
+        setMonster();
+        move();
+        collisionVerification();
+        checkTimeSound();
+    }
+    
+    
     public Monster(MyWorld myWorld){
         this.myWorld = myWorld;
     

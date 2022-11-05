@@ -13,18 +13,7 @@ public class P2Monster extends Monster
     public P2Monster(MyWorld world){
         super(world);
     }
-    /**
-     * Act - do whatever the P2Monster wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
-        setMonster();
-        move();
-        collisionVerification();
-        checkTimeSound();
-    }
+    
     public void move(){
         super.localizationX = getX();
         super.localizationY = getY();

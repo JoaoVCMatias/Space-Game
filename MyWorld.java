@@ -23,21 +23,22 @@ public class MyWorld extends World
     /**
      * Constructor for objects of class MyWorld.
      */
-    public MyWorld(Level level)
+    public MyWorld(Level level) //É passado o level como parametro
     {
+        //É construido o mundo de maneira padrão, de acordo com as caracteristicas de cada lvl
         super(800, 600, 1);
         p1Monster = new P1Monster(this);
         p2Monster = new P2Monster(this);
         
         addObject(p1Monster, 550,550);
         addObject(p2Monster, 110,550);
-       
+           
         this.level = level;
-        setBackground(level.urlImage);
+        setBackground(level.geturlImage());
         addObject(new Info(this), 25, 150);
         addObject(new SmallQuit(this), 25, 200);
         
-        if(level.idLevel == 3){
+        if(level.getIdLevel() == 3){
             addObject(new RedOvni(this), 110,50);
             addObject(new BlueOvni(this), 550,50);
             p1Monster.setScore(1000);
@@ -49,20 +50,20 @@ public class MyWorld extends World
     
     public void act()
     {
-        showText("Level: " + level.idLevel, 500,20);
+        showText("Level: " + level.getIdLevel(), 500,20);
         initializeTime();
         initializeSound();
         checkTime();
         updateTime();
         updateScore();
-        if(timer.getTime() > 0 && level.idLevel != 3){
+        if(timer.getTime() > 0 && level.getIdLevel() != 3){
             generateMissible();
             generateMeteor();
             generateSatellite();
             
         }
-        else if (timer.getTime() == 0){ 
-            if(waitLevel == null){
+        else if (timer.getTime() == 0){ //Verifica se o tempo acabou
+            if(waitLevel == null){ //Instancia um cronometro para o proximo lvl
                 waitLevel = new Time(90,500,500);
             }
             if(waitLevel.getTime() == 0){
@@ -106,15 +107,15 @@ public class MyWorld extends World
     private void generateMissible(){
         Random var = new Random();
         //System.out.println(level.countMissile);
-        if(var.nextInt(100) < incidenceMissile  && level.countMissile < level.maxMissile){
-            if(var.nextInt(100) < level.probaMissileBlue){
+        if(var.nextInt(100) < incidenceMissile  && level.countMissile < level.getMaxMissile()){
+            if(var.nextInt(100) < level.getProbaMissileBlue()){
                 generateBlueMissile();
             }else{
                 generateGreenMissile();
             }
             incrementMissile();
         }
-        if(level.countMissile == level.maxMissile)
+        if(level.countMissile == level.getMaxMissile())
             incidenceMissile = 1;
             
             
@@ -124,11 +125,11 @@ public class MyWorld extends World
         Random var = new Random();
         int value = var.nextInt(101);
         
-        if(var.nextInt(100) <= level.probMeteor && level.countMeteor < level.maxMeteor){
+        if(var.nextInt(100) <= level.getProbMeteor() && level.getCountMeteor() < level.getMaxMeteor()){
         
-            if(value <= level.probaGoldMeteor)
+            if(value <= level.getProbaGoldMeteor())
                 addObject(new GoldMeteor(this), var.nextInt(800),10);
-            else if(value <= level.probaGreenMeteor) 
+            else if(value <= level.getProbaGreenMeteor()) 
                 addObject(new GreenMeteor(this), var.nextInt(800),10);
             else
                addObject(new RedMeteor(this), var.nextInt(800),10);
@@ -138,7 +139,7 @@ public class MyWorld extends World
     }
     private void generateSatellite(){
         Random var = new Random();
-        if(var.nextInt(51) == 50 && level.countSatellite < level.maxSatellite){
+        if(var.nextInt(51) == 50 && level.countSatellite < level.getMaxSatellite()){
             addObject(new SatelliteGrey(this), var.nextInt(800),10);
             incrementSatellite();
 
@@ -162,11 +163,11 @@ public class MyWorld extends World
             if(sound != null)
                 sound.stopMusic();
             if(nextLevel == null){
-                if(level.idLevel == 1)
+                if(level.getIdLevel() == 1)
                     nextLevel = new NextLevel(new MyWorld(Level.generateLevel2()));
-                if(level.idLevel == 2)
+                if(level.getIdLevel() == 2)
                     nextLevel = new NextLevel(new MyWorld(Level.generateLevel3()));
-                if(level.idLevel == 3)
+                if(level.getIdLevel() == 3)
                     nextLevel = new NextLevel(new Menu());
                     
                 addObject(nextLevel, 400, 300);

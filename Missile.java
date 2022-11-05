@@ -15,6 +15,16 @@ public abstract class Missile  extends Actor
      * Act - do whatever the Missile wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public void act()
+    {
+        // Add your action code here.
+        //System.out.println(myWorld.getWorldTime());
+        if(myWorld.getWorldTime() > 0){
+            setMissile();
+            move();
+            atWorldEdge();
+        }
+    }
     
     public Missile(GifImage gifMissile, MyWorld myWorld){
         missile = gifMissile;

@@ -72,8 +72,8 @@ public class MissileGreen extends Missile
         
         if(this.myWorld.getWorldTime() > 0){
             if (missile != null) {
-                System.out.println(getX() + getY());
-                //myWorld.addObject(new MissileRed(myWorld), getX(), getY());
+                //System.out.println(getX() + getY());
+                myWorld.addObject(new MissileRed(myWorld), getX(), getY());
                 myWorld.removeObject(missile);
                 myWorld.removeObject(this);
                 myWorld.decrementMissile();

@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Button extends Actor
 {
+    //Cada butao podera receber o mundo(lvl) ou World(definido aqui como menu)
     private MyWorld myWorld;
     private World menu;
     

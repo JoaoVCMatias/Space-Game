@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Info extends Button
 {
+    //Mesmo que o info retorne para um level, definimos os dois tipos de retorno
     public Info(MyWorld myWorld){
         super(myWorld);
         myWorld.pauseTime();

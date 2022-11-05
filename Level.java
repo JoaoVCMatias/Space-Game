@@ -10,26 +10,26 @@ import java.util.stream.Collectors;
 public class Level  
 {
     // instance variables - replace the example below with your own
-    public int idLevel;
-    public int probaMissileBlue;
-    public int probaMissileGreen;
+    private int idLevel;
+    private int probaMissileBlue;
+    private int probaMissileGreen;
     
-    public int probMeteor;
-    public int probaGoldMeteor;
-    public int probaGreenMeteor;
-    public int probaRedMeteor;
+    private int probMeteor;
+    private int probaGoldMeteor;
+    private int probaGreenMeteor;
+    private int probaRedMeteor;
     
-    public int probaSatellite;
+    private int probaSatellite;
     
     public int countMeteor;
     public int countMissile;
     public int countSatellite;
     
-    public int maxMeteor;
-    public int maxMissile;
-    public int maxSatellite;
+    private int maxMeteor;
+    private int maxMissile;
+    private int maxSatellite;
     
-    public String urlImage;
+    private String urlImage;
     
 
     /**
@@ -61,6 +61,9 @@ public class Level
      * @param  y   a sample parameter for a method
      * @return     the sum of x and y 
      */
+    
+    //São criados os geradores de level
+    
     public static Level generateLevel1(){
         ArrayList<Integer> levelProp = new ArrayList<Integer>();
         //idLevel, pMB, pMG, pM, pGM, pGM,pRM, pS, mMe, mMi, mS
@@ -91,5 +94,67 @@ public class Level
         return new Level(levelProp,"nivel03.png");
     }
     
+    
+    //São criados os get's dos atributos do level
+    public int getIdLevel(){
+        return idLevel;
+    }
+    
+    public int getProbaMissileBlue(){
+        return probaMissileBlue;
+    }
+    
+    public int getProbaMissileGreen(){
+        return probaMissileGreen;
+    }
+    
+    public int getProbMeteor(){
+        return probMeteor;
+    }
+    
+    public int getProbaGoldMeteor(){
+        return probaGoldMeteor;
+    }
+    
+    public int getProbaGreenMeteor(){
+        return probaGreenMeteor;
+    }
+    
+    public int getProbaRedMeteor(){
+        return probaRedMeteor;
+    }
+    
+    public int getProbaSatellite(){
+        return probaSatellite;
+    }
+    
+    public int getCountMeteor(){
+        return countMeteor;
+    }
+    
+    public int getCountMissile(){
+        return countMissile;
+    }
 
+    public int getCountSatellite(){
+        return countSatellite;
+    }
+    
+    public int getMaxMeteor(){
+        return maxMeteor;
+    }
+    
+    public int getMaxMissile(){
+        return maxMissile;
+    }
+    
+    public int getMaxSatellite(){
+        return maxSatellite;
+    }
+    
+    public String geturlImage(){
+        return urlImage;
+    }
+    
+    
 }
