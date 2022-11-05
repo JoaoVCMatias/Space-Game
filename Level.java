@@ -29,11 +29,13 @@ public class Level
     public int maxMissile;
     public int maxSatellite;
     
+    public String urlImage;
+    
 
     /**
      * Constructor for objects of class Level
      */
-    private Level(ArrayList<Integer> levelProp)
+    private Level(ArrayList<Integer> levelProp, String urlImage)
     {
         idLevel = levelProp.get(0);
         probaMissileBlue = levelProp.get(1);
@@ -49,6 +51,8 @@ public class Level
         maxMeteor = levelProp.get(8);
         maxMissile = levelProp.get(9);
         maxSatellite = levelProp.get(10);
+        
+        this.urlImage = urlImage;
     }
 
     /**
@@ -64,7 +68,7 @@ public class Level
 
         
         levelProp = (ArrayList<Integer>) Arrays.stream(intArray).boxed().collect(Collectors.toList());;
-        return new Level(levelProp);
+        return new Level(levelProp,"nivel01.png");
     }
     
     public static Level generateLevel2(){
@@ -74,7 +78,7 @@ public class Level
 
         
         levelProp = (ArrayList<Integer>) Arrays.stream(intArray).boxed().collect(Collectors.toList());;
-        return new Level(levelProp);
+        return new Level(levelProp,"nivel02.png");
     }
     
     public static Level generateLevel3(){
@@ -84,7 +88,7 @@ public class Level
 
         
         levelProp = (ArrayList<Integer>) Arrays.stream(intArray).boxed().collect(Collectors.toList());;
-        return new Level(levelProp);
+        return new Level(levelProp,"nivel03.png");
     }
     
 

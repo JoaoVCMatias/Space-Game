@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Level
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Level\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=levelProp
-comment1.target=Level(java.util.ArrayList)
+comment1.params=levelProp\ urlImage
+comment1.target=Level(java.util.ArrayList,\ java.lang.String)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Level\r\n
 comment2.params=
 comment2.target=Level\ generateLevel1()

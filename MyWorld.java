@@ -33,6 +33,7 @@ public class MyWorld extends World
         addObject(p2Monster, 110,550);
        
         this.level = level;
+        setBackground(level.urlImage);
         addObject(new Info(this), 25, 150);
         addObject(new SmallQuit(this), 25, 200);
         
