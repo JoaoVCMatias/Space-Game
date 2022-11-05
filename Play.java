@@ -18,6 +18,7 @@ public class Play extends Button
     public void act()
     {
         // Add your action code here.
+        getImage().scale(491,321);
         click();
     }
     

@@ -19,5 +19,6 @@ public class Menu extends World
         super(800, 600, 1);
         addObject(new Play(new MyWorld(Level.generateLevel1())), 350, 140);
         addObject(new Quit(new MyWorld(Level.generateLevel1())), 350, 448);
+        addObject(new Info(new About(this)), 740, 560);
     }
 }

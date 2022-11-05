@@ -11,6 +11,9 @@ public class SmallQuit extends Button
     public SmallQuit(MyWorld myWorld){
         super(myWorld);
     }
+    public SmallQuit(World menu){
+        super(menu);
+    }
     /**
      * Act - do whatever the SmallQuit wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

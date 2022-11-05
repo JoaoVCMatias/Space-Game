@@ -13,6 +13,10 @@ public class Info extends Button
         myWorld.pauseTime();
     }
     
+    public Info(World menu){
+        super(menu);
+    }
+    
     /**
      * Act - do whatever the Info wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -28,8 +32,14 @@ public class Info extends Button
     public void click(){
         if(Greenfoot.mouseClicked(this))
         {
-            getLevel().pauseTime();
-            Greenfoot.setWorld(new Information(getLevel())); 
+            if(getMenu() != null){
+                Greenfoot.setWorld(getMenu());
+            }   
+            else if(getLevel() != null){
+                getLevel().pauseTime();
+                Greenfoot.setWorld(new Information(getLevel())); 
+            }  
+            
         }
     }
 }

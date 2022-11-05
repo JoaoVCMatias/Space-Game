@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class NextLevel extends Button
 {
     private Time time;
+    
     public NextLevel(MyWorld myWorld){
         super(myWorld);
     }
