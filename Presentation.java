@@ -15,7 +15,7 @@ public class Presentation extends World
      */
     public Presentation()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Cria novo mundo de resolucao 600x400 com celula de 1 pixel
         super(800, 600, 1);
         menu = new NextLevel(new Menu());
         addObject(menu, 700, 450);
