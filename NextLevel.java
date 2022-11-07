@@ -18,17 +18,14 @@ public class NextLevel extends Button
         super(menu);
     }
         
-        
     /**
      * Act - do whatever the NextLevel wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        // Add your action code here.
         getImage().scale(200, 200);
         click();
-        
     }
     
     public void click(){
@@ -40,13 +37,10 @@ public class NextLevel extends Button
                 Greenfoot.setWorld(getLevel());
                 getLevel().startTime();
             }           
-              
         }
     }
     
     public void click(MyWorld myWorld){
-                
-        //myWorld = null;
         if(getMenu() != null){
             Greenfoot.setWorld(getMenu());
         }   
@@ -54,8 +48,5 @@ public class NextLevel extends Button
             Greenfoot.setWorld(getLevel());
             getLevel().startTime();
         }
-        //getLevel().startTime();
-        
-    
     }
 }
