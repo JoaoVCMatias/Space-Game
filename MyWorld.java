@@ -8,7 +8,6 @@ import java.util.ArrayList;
  */
 public class MyWorld extends World
 {
-    //private ArrayList<Monster> players = new ArrayList<Monster>();
     private P1Monster p1Monster;
     private P2Monster p2Monster;
     private int time = 60;
@@ -18,7 +17,6 @@ public class MyWorld extends World
     private int incidenceMissile = 5;
     private NextLevel nextLevel;
     private Time waitLevel;
-
 
     /**
      * Constructor for objects of class MyWorld.
@@ -44,8 +42,6 @@ public class MyWorld extends World
             p1Monster.setScore(1000);
             p2Monster.setScore(1000);
         }
-        
-        
     }
     
     public void act()
@@ -60,7 +56,6 @@ public class MyWorld extends World
             generateMissible();
             generateMeteor();
             generateSatellite();
-            
         }
         else if (timer.getTime() == 0){ //Verifica se o tempo acabou
             if(waitLevel == null){ //Instancia um cronometro para o proximo lvl
@@ -76,11 +71,6 @@ public class MyWorld extends World
             else
                 showText("Empate. O tempo acabou..." + waitLevel.getTime(), 400,150);
         }
-        
-        
-        
-        
-        
     }
     
     public void initializeTime(){
@@ -106,7 +96,6 @@ public class MyWorld extends World
     }
     private void generateMissible(){
         Random var = new Random();
-        //System.out.println(level.countMissile);
         if(var.nextInt(100) < incidenceMissile  && level.countMissile < level.getMaxMissile()){
             if(var.nextInt(100) < level.getProbaMissileBlue()){
                 generateBlueMissile();
@@ -117,8 +106,6 @@ public class MyWorld extends World
         }
         if(level.countMissile == level.getMaxMissile())
             incidenceMissile = 1;
-            
-            
     }
     
     private void generateMeteor(){
@@ -134,23 +121,18 @@ public class MyWorld extends World
             else
                addObject(new RedMeteor(this), var.nextInt(800),10);
             incrementMeteor();
-        }
-            
+        }   
     }
     private void generateSatellite(){
         Random var = new Random();
         if(var.nextInt(51) == 50 && level.countSatellite < level.getMaxSatellite()){
             addObject(new SatelliteGrey(this), var.nextInt(800),10);
             incrementSatellite();
-
-        }
-            
+        }   
     }
     private void updateScore(){
-        
         showText("Score P1: " + p1Monster.getScore(), 700,20);
         showText("Score P2: " + p2Monster.getScore(), 100,20);
-        
     }
     
     private void updateTime(){
@@ -158,7 +140,6 @@ public class MyWorld extends World
     }
 
     private void checkTime(){
-        
         if(timer.getTime() == 0){
             if(sound != null)
                 sound.stopMusic();
@@ -169,28 +150,25 @@ public class MyWorld extends World
                     nextLevel = new NextLevel(new MyWorld(Level.generateLevel3()));
                 if(level.getIdLevel() == 3)
                     nextLevel = new NextLevel(new Menu());
-                    
                 addObject(nextLevel, 400, 300);
-            }
-                
+            }                
         }  
-                
-            
     }
         
-    
-    
     public void pauseTime(){
         if(timer != null)
             timer.pause();
     }
+    
     public void startTime(){
         if(timer != null)
             timer.start();
     }
+    
     public Monster getMonster1(){
         return p1Monster;
     }
+    
     public Monster getMonster2(){
         return p2Monster;
     }
