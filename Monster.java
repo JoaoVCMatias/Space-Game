@@ -12,7 +12,7 @@ public abstract class Monster extends Actor {
     protected int fireBool;
     public MyWorld myWorld;
     private int shotDelay = 2;
-    private Time timeShot;
+    protected Time timeShot;
     private Sound sound = new Sound("Comendo.wav",50,1);
     
     
@@ -85,9 +85,10 @@ public abstract class Monster extends Actor {
     }
     
     public void fire(){
-        if(!delayShot() && firePower()){
+        if(firePower() && !delayShot()){
             myWorld.addObject(new FireBool(myWorld), localizationX,localizationY-5);
             fireBoolDecrement();
+            timeShot = new Time(shotDelay,500,500);
         }
             
     }
@@ -100,6 +101,8 @@ public abstract class Monster extends Actor {
         if(timeShot.getTime() == 0){
             timeShot = null;
             return false;
+        }if(timeShot.getTime() > 0){
+            return true;
         }
         return true;
             

@@ -10,7 +10,7 @@ public class MyWorld extends World
 {
     private P1Monster p1Monster;
     private P2Monster p2Monster;
-    private int time = 60;
+    private int time = 500;
     private Time timer;
     private Sound sound;
     private Level level;
@@ -47,6 +47,13 @@ public class MyWorld extends World
     public void act()
     {
         showText("Level: " + level.getIdLevel(), 500,20);
+        //showText("F1: " + p1Monster.fireBool + "F2:" + p2Monster.fireBool, 500,50);
+        /*try{
+            showText("T1: " + p1Monster.timeShot.getTime() + "T2:" + p2Monster.timeShot.getTime(), 500,80);
+        }catch(Exception ex){
+        
+        }*/
+        
         initializeTime();
         initializeSound();
         checkTime();

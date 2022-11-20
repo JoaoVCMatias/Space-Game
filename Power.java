@@ -36,8 +36,8 @@ public abstract class Power extends Actor
             sound.stopMusic();
             myWorld.addObject(new Explosion(), getX(), getY());
             myWorld.removeObject(missile);   
-            myWorld.removeObject((FireBool)this);
             myWorld.decrementMissile();
+            myWorld.removeObject((FireBool)this);
             
         }
         
