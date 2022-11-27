@@ -23,7 +23,10 @@ public class Play extends Button
     }
     
     public void click(){
+        
         if(Greenfoot.mouseClicked(this)){
+            Menu m = (Menu)getWorld();
+            m.StopMusic();
             Greenfoot.setWorld(getLevel());     
         }
     }
