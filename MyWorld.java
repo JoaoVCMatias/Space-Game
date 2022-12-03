@@ -10,7 +10,7 @@ public class MyWorld extends World
 {
     private P1Monster p1Monster;
     private P2Monster p2Monster;
-    private int time = 500;
+    private int time = 60;
     private Time timer;
     private Sound sound;
     private Level level;
