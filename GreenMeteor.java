@@ -1,10 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class GreenMeteor here.
+ * Derivado de Meteor com pontuacao equivalente a 5.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @version 2022-12-03
  */
 public class GreenMeteor extends Meteor
 {
@@ -19,8 +18,6 @@ public class GreenMeteor extends Meteor
      */
     public void act()
     {
-        // Add your action code here.
-        //System.out.println(getMyWorld().getWorldTime());
         if(getMyWorld().getWorldTime() > 0){
             setImage(greenMeteor.getCurrentImage());
             getImage().scale(30,30);
@@ -30,6 +27,5 @@ public class GreenMeteor extends Meteor
             atWorldEdge();
         
         }
-        
     }
 }
