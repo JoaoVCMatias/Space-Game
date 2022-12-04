@@ -1,14 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Button here.
+ * Classe abstrata para a criacao de botoes, objetos responsaveis pelo encapsulamento
+ * de possiveis cenarios a serem imprimidos em tela mediante click.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @version 2022-12-03
  */
 public abstract class Button extends Actor
 {
-    //Cada butao podera receber o mundo(lvl) ou World(definido aqui como menu)
     private MyWorld myWorld;
     private World menu;
     

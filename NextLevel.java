@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class NextLevel here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Classe derivada de Button que mediante ao click do jogador redireciona o mesmo
+ * para o proximo level do jogo.
+ *  
+ * @version 2022-12-03
  */
 public class NextLevel extends Button
 {

@@ -1,10 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class Quit here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Classe derivada de Button que mediante ao click do jogador finaliza o jogo.
+ *  
+ * @version 2022-12-03
  */
 public class Quit extends Button
 {

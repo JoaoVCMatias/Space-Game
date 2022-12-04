@@ -1,10 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class MissileBlue here.
+ * Derivado da classe Missile com pontuacao (dano) equivalente a 5.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @version 2022-12-03
  */
 public class MissileBlue extends Missile
 {
@@ -22,5 +21,4 @@ public class MissileBlue extends Missile
         int y = getY();
         setLocation(x, y+2);
     }
-    
 }

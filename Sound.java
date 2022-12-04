@@ -1,21 +1,22 @@
 import greenfoot.GreenfootSound;
 
 /**
- * Write a description of class Sound here.
+ * Permite a execucao de musicas com volume e tempo de delay personalizados.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @version 2022-12-04
  */
 public class Sound  
 {
-    // instance variables - replace the example below with your own
     private int volume = 50;
     private GreenfootSound sound;
     private int secTime;
     private Time soundTime;
     
     /**
-     * Constructor for objects of class Sound
+     * Construtor para objetos da classe Sound.
+     * 
+     * @param  String url   local do arquivo
+     * @param  int volume   volume que sera usado para tocar o som
      */
     public Sound(String url, int volume)
     {
@@ -23,6 +24,14 @@ public class Sound
         setVolume(volume);
         sound.setVolume(volume);
     }
+    
+    /**
+     * Construtor para objetos da classe Sound.
+     * 
+     * @param  String url   local do arquivo
+     * @param  int volume   volume que sera usado para tocar o som
+     * @param  int time     tempo de delay para inicio do som
+     */
     public Sound(String url, int volume, int time)
     {
         sound = new GreenfootSound(url);
@@ -31,6 +40,11 @@ public class Sound
         secTime = time;
     }
     
+    /**
+     * Construtor para objetos da classe Sound.
+     * 
+     * @param  String url   local do arquivo
+     */
     public Sound(String url)
     {
         sound = new GreenfootSound(url);
@@ -55,5 +69,4 @@ public class Sound
             return soundTime.getTime();
         return 0;
     }
-    
 }

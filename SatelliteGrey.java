@@ -1,14 +1,14 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class SatelliteGrey here.
+ * Derivado da classe Satellite que plota/representa um satelite cinza.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @version 2022-12-04
  */
 public class SatelliteGrey extends Satellite
 {
     GifImage satellite = new GifImage("Satelite.gif");
+    
     /**
      * Act - do whatever the SatelliteGrey wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -17,19 +17,20 @@ public class SatelliteGrey extends Satellite
     public SatelliteGrey(MyWorld myWorld){
         super(myWorld);
     }
+    
     public void act()
     {
-        // Add your action code here.
         if(getMyWorld().getWorldTime() > 0){
             setSatellite();
             move();
             atWorldEdge();
         }
-        
     }
+    
     public void move(){
        setLocation(getX(), getY()+1);
     }
+    
     public void setSatellite(){
         setImage(satellite.getCurrentImage());     
         getImage().scale(60, 60);

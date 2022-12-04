@@ -1,10 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class Power here.
+ * Classe abstrata para a criacao de poderes que removem misseis do cenario.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @version 2022-12-04
  */
 public abstract class Power extends Actor
 {
@@ -18,18 +17,24 @@ public abstract class Power extends Actor
         this.sound = sound;
         sound.playMusic();
     }
+    
     public void atWorldEdge() {
         if(this.getY() <= 10) {
             myWorld.removeObject((FireBool)this);
             
         }
     }
+    
     public abstract void move();
     
     public void setMissile(){
         setImage(power.getCurrentImage());
         getImage().scale(40,40);
     }
+    
+    /**
+     * Mediante a colisao com missil, remove ambos do cenario.
+     */
     public void collisionVerification(){
         Actor missile = getOneIntersectingObject(Missile.class);
         if(missile != null){
@@ -38,9 +43,7 @@ public abstract class Power extends Actor
             myWorld.removeObject(missile);   
             myWorld.decrementMissile();
             myWorld.removeObject((FireBool)this);
-            
         }
-        
     }
     
     public void checkTimeSound(){

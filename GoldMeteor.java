@@ -1,17 +1,16 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class GoldMeteor here.
+ * Derivado de Meteor com pontuacao equivalente a 20.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @version 2022-12-03
  */
 public class GoldMeteor extends Meteor
 {
     GifImage goldMeteor = new GifImage("MeteoroDourado.gif");
     
     public GoldMeteor(MyWorld myWorld){
-        super(20,myWorld);
+        super(20, myWorld);
     }
     /**
      * Act - do whatever the GoldMeteor wants to do. This method is called whenever
@@ -19,8 +18,6 @@ public class GoldMeteor extends Meteor
      */
     public void act()
     {
-        // Add your action code here.
-        //System.out.println(getMyWorld().getWorldTime());
         if(getMyWorld().getWorldTime() > 0){
             setImage(goldMeteor.getCurrentImage());
             getImage().scale(30,30);
@@ -29,6 +26,5 @@ public class GoldMeteor extends Meteor
             setLocation(x, y+2);
             atWorldEdge();
         }
-        
     }
 }

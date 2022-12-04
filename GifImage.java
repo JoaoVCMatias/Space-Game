@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;

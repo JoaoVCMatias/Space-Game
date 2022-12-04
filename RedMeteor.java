@@ -1,10 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class RedMeteor here.
+ * Derivado de Meteor com pontuacao equivalente a 10.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @version 2022-12-03
  */
 public class RedMeteor extends Meteor
 {
@@ -13,14 +12,13 @@ public class RedMeteor extends Meteor
     public RedMeteor(MyWorld myWorld){
         super(10, myWorld);
     }
+    
     /**
      * Act - do whatever the RedMeteor wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        // Add your action code here.
-        //System.out.println(getMyWorld().getWorldTime());
         if(getMyWorld().getWorldTime() > 0){
             setImage(redMeteor.getCurrentImage());
             getImage().scale(30,30);
@@ -28,8 +26,6 @@ public class RedMeteor extends Meteor
             int y = getY();
             setLocation(x, y+2);
             atWorldEdge();
-        
         }
-        
     }
 }

@@ -2,17 +2,14 @@ import java.util.TimerTask;
 import java.util.Timer;
 
 /**
- * Write a description of class Time here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Cronometro que pode ser utilizado para determinar o tempo entre uma acao e outra.
+ *  
+ * @version 2022-12-04
  */
 public class Time  
 {
-    // instance variables - replace the example below with your own
     private int time;
     private boolean pause;
-    
     
     Timer cronometro = new Timer();
     TimerTask tarefa = new TimerTask() {
@@ -22,9 +19,6 @@ public class Time
         }
     };
     
-    /**
-     * Constructor for objects of class Time
-     */
     public Time(int time, int time1, int time2)
     {
         this.time = time;
@@ -41,7 +35,5 @@ public class Time
     
     public void start(){
         this.pause = false;
-    }
-
-    
+    }    
 }

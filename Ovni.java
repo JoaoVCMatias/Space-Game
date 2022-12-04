@@ -1,13 +1,12 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 import java.util.Random;
 
 /**
- * Write a description of class Ovni here.
+ * Classe abstrata para a criacao dos ovnis (chefe final).
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @version 2022-12-04
  */
-public abstract class  Ovni extends Actor
+public abstract class Ovni extends Actor
 {
     private MyWorld myWorld;
     protected char direction = 'r';
@@ -19,6 +18,9 @@ public abstract class  Ovni extends Actor
     
     public abstract void move();
     
+    /**
+     * Dispara misseis de acordo com a probabilidade definida no level.
+     */
     public void fire(){
         Random var = new Random();
         

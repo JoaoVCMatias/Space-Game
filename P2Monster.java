@@ -1,10 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class P2Monster here.
+ * Derivado de Monster com movimentacao limitada ao lado esquerdo da tela.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @version 2022-12-04
  */
 public class P2Monster extends Monster
 {

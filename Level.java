@@ -2,14 +2,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Write a description of class Level here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Level do jogo encapsula as probabilidades referentes a um level especifico do jogo.
+ *  
+ * @version 2022-12-04
  */
 public class Level  
 {
-    // instance variables - replace the example below with your own
     private int idLevel;
     private int probaMissileBlue;
     private int probaMissileGreen;
@@ -31,9 +29,9 @@ public class Level
     
     private String urlImage;
     
-
     /**
-     * Constructor for objects of class Level
+     * Construtor privado porque a criacao de um Level deve ser feita por meio de um dos
+     * metodos "fabrica" que sao estaticos.
      */
     private Level(ArrayList<Integer> levelProp, String urlImage)
     {
@@ -56,46 +54,47 @@ public class Level
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Gerador/fabrica do level 1.
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @return     instancia de Level com valores e probabilidades referentes
      */
-    
-    //São criados os geradores de level
-    
     public static Level generateLevel1(){
         ArrayList<Integer> levelProp = new ArrayList<Integer>();
         //idLevel, pMB, pMG, pM, pGM, pGM,pRM, pS, mMe, mMi, mS
         int[] intArray = {1,60,50,5,10,50,60,20,10,15,10};
 
-        
         levelProp = (ArrayList<Integer>) Arrays.stream(intArray).boxed().collect(Collectors.toList());;
         return new Level(levelProp,"nivel01.png");
     }
     
+    /**
+     * Gerador/fabrica do level 2.
+     * 
+     * @return     instancia de Level com valores e probabilidades referentes
+     */
     public static Level generateLevel2(){
         ArrayList<Integer> levelProp = new ArrayList<Integer>();
         //idLevel, pMB, pMG, pM, pGM, pGM,pRM, pS, mMe, mMi, mS
         int[] intArray = {2,60,50,5,10,50,60,20,10,15,10};
 
-        
         levelProp = (ArrayList<Integer>) Arrays.stream(intArray).boxed().collect(Collectors.toList());;
         return new Level(levelProp,"nivel02.png");
     }
     
+    /**
+     * Gerador/fabrica do level 3.
+     * 
+     * @return     instancia de Level com valores e probabilidades referentes
+     */
     public static Level generateLevel3(){
         ArrayList<Integer> levelProp = new ArrayList<Integer>();
         //idLevel, pMB, pMG, pM, pGM, pGM,pRM, pS, mMe, mMi, mS
         int[] intArray = {3,40,50,10,20,5,60,20,10,15,10};
 
-        
         levelProp = (ArrayList<Integer>) Arrays.stream(intArray).boxed().collect(Collectors.toList());;
         return new Level(levelProp,"nivel03.png");
     }
     
-    
-    //São criados os get's dos atributos do level
     public int getIdLevel(){
         return idLevel;
     }
@@ -155,6 +154,4 @@ public class Level
     public String geturlImage(){
         return urlImage;
     }
-    
-    
 }

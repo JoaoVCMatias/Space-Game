@@ -2,44 +2,38 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * Write a description of class MissileGreen here.
+ * Derivado da classe Missile com pontuacao (dano) equivalente a 5. Esse missil segue o
+ * jogador pelo cenario.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @version 2022-12-03
  */
 public class MissileGreen extends Missile
 {
-    
-    /**
-     * Act - do whatever the MissileGreen wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    
     private Monster selectedMonster;
     
     public MissileGreen(MyWorld myWorld){
         super(new GifImage("MissilVerde.gif"),myWorld);
         setDamage(5);
     }
+    
     public void act()
     {
-        // Add your action code here.
-        //System.out.println(myWorld.getWorldTime());
         if(this != null && myWorld.getWorldTime() > 0){
             setMissile();
             move();
             atWorldEdge();
             collisionVerification();
         }
-             
-        
-        
     }
     
     public void move(){
        setLocalizationX();
        setLocation(getX(), getY()+1);
     }
+    
+    /**
+     * Determina a posicao (eixo X) do missil com base na posicao do jogador alvo.
+     */
     private void setLocalizationX(){
         if(selectedMonster == null)
             selectMonster();
@@ -49,6 +43,10 @@ public class MissileGreen extends Missile
             setLocation(getX()-1, getY());
         }
     }
+    
+     /**
+     * Determina jogador alvo como jogador mais proximo do missil.
+     */
     public void selectMonster(){
         int p1x = myWorld.getMonster1().localizationX;
         int p2x = myWorld.getMonster2().localizationX;
@@ -62,26 +60,22 @@ public class MissileGreen extends Missile
         }else{
             selectedMonster = myWorld.getMonster2();
         }
-
-        
     }
     
+    /**
+     * Cria e plota um missil vermelho (tira mais pontos) caso um missil verde colida com
+     * outro missil nao vermelho.
+     */
     public void collisionVerification() {
         Actor missile = getOneIntersectingObject(Missile.class);
         
-        
         if(this.myWorld.getWorldTime() > 0){
             if (missile != null) {
-                //System.out.println(getX() + getY());
                 myWorld.addObject(new MissileRed(myWorld), getX(), getY());
                 myWorld.removeObject(missile);
                 myWorld.removeObject(this);
                 myWorld.decrementMissile();
-                
-                
             }
-        
         }
-        
     }
 }

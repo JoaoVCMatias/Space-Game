@@ -1,10 +1,11 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class Satellite here.
+ * Classe abstrata para a criacao de satelites. Objetos de classes filhas de Satellite
+ * representam o item necessario para que os jogadores possam usar poderes. Um satelite
+ * incrementa o total de poderes disponiveis em 1.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @version 2022-12-04
  */
 public abstract class Satellite extends Actor
 {
@@ -13,12 +14,14 @@ public abstract class Satellite extends Actor
     public Satellite(MyWorld myWorld){
         this.myWorld = myWorld;
     }
+    
     public void atWorldEdge() {
         if(getY() > getWorld().getHeight() - 5) {
             myWorld.decrementSatellite();
             myWorld.removeObject(this);
         }
     }
+    
     public abstract void move();
     
     public MyWorld getMyWorld(){

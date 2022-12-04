@@ -1,10 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class Meteor here.
+ * Sua instancia encapsula a pontuacao a ser adquirida pelos jogadores.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @version 2022-12-03
  */
 public class Meteor extends Actor
 {
@@ -20,6 +19,10 @@ public class Meteor extends Actor
         return value;
     }
     
+    /**
+     * Elimina o objeto do cenario (World) atual caso o mesmo chegue no final do campo
+     * visivel.
+     */
     public void atWorldEdge() {
         if(getY() > myWorld.getHeight() - 5) {
             myWorld.decrementMeteor();
