@@ -1,23 +1,16 @@
-import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class P1Monster here.
+ * Derivado de Monster com movimentacao limitada ao lado direito da tela.
  * 
- * @author (your name)
- * @version (a version number or a date)
+ * @version 2022-12-04
  */
 public class P1Monster extends Monster {
     GifImage monster = new GifImage("Modelo1.gif");
     
- 
-    
     public P1Monster(MyWorld world){
         super(world);
     }
-    /**
-     * Act - do whatever the P1Monster wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     
     public void move(){
         super.localizationX = getX();
@@ -48,6 +41,7 @@ public class P1Monster extends Monster {
         }
         
     }
+    
     public void setMonster(){
         setImage(monster.getCurrentImage());     
         getImage().scale(60, 60);

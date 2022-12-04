@@ -1,30 +1,31 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class RedOvni here.
+ * Derivado de Ovni com movimentacao limitada ao lado esquerdo da tela.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @version 2022-12-04
  */
 public class RedOvni extends Ovni
 {
     public RedOvni(MyWorld myWorld){
         super(myWorld);
     }
+    
     /**
      * Act - do whatever the RedOvni wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        // Add your action code here.
         setOvni();
         move();
         fire();
     }
+    
     public void setOvni(){
         getImage().scale(60, 60);
     }
+    
     public void move(){
         if(direction == 'r'){
             if(getX() <= 365){
