@@ -1,10 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class MissileRed here.
+ * Derivado da classe Missile com pontuacao (dano) equivalente a 10.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @version 2022-12-03
  */
 public class MissileRed extends Missile
 {

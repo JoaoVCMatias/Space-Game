@@ -1,24 +1,23 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class Missile here.
+ * Classe abstrata para a criacao de misseis, objetos responsaveis pelo encapsulamento
+ * das pontuacoes a serem perdidas pelo jogador em caso de colisao.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @version 2022-12-03
  */
 public abstract class Missile  extends Actor
 {
     private GifImage missile;
     private int damage;
     protected MyWorld myWorld;
+    
     /**
      * Act - do whatever the Missile wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        // Add your action code here.
-        //System.out.println(myWorld.getWorldTime());
         if(myWorld.getWorldTime() > 0){
             setMissile();
             move();
@@ -30,6 +29,11 @@ public abstract class Missile  extends Actor
         missile = gifMissile;
         this.myWorld = myWorld;
     }
+    
+    /**
+     * Elimina o objeto do cenario (World) atual caso o mesmo chegue no final do campo
+     * visivel.
+     */
     public void atWorldEdge() {
         if(getY() > getWorld().getHeight() - 5) {
             myWorld.removeObject(this);
@@ -48,10 +52,11 @@ public abstract class Missile  extends Actor
         setImage(missile.getCurrentImage());
         getImage().scale(40,40);
     }
+    
     protected void detonate(){
         missile = new GifImage("Explosao.gif");
         getWorld().addObject(new Explosion(),getX(),getY());
     }
+    
     public abstract void move();
-        
 }
