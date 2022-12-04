@@ -1,26 +1,27 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class SmallQuit here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Classe derivada de Button que mediante ao click do jogador finaliza o jogo. A diferenca
+ * do SmallQuit para Quit esta no tamanho da imagem utilizada.
+ *  
+ * @version 2022-12-03
  */
 public class SmallQuit extends Button
 {
     public SmallQuit(MyWorld myWorld){
         super(myWorld);
     }
+    
     public SmallQuit(World menu){
         super(menu);
     }
+    
     /**
      * Act - do whatever the SmallQuit wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        // Add your action code here.
         getImage().scale(50, 50);
         click();
     }
@@ -29,7 +30,6 @@ public class SmallQuit extends Button
         if(Greenfoot.mouseClicked(this))
         {
             System.exit(0);
-              
         }
     }
 }
