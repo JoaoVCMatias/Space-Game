@@ -4,7 +4,10 @@ import greenfoot.*;
 import java.util.ArrayList;
 
 /**
+ * Representa a concretizacao do level em tela com os objetos necessario 
+ * com base nas probabilidades do level.
  * 
+ * @version 2022-12-03
  */
 public class MyWorld extends World
 {
@@ -19,11 +22,10 @@ public class MyWorld extends World
     private Time waitLevel;
 
     /**
-     * Constructor for objects of class MyWorld.
+     * Instancia o cenario com base no nivel informado.
      */
-    public MyWorld(Level level) //É passado o level como parametro
+    public MyWorld(Level level)
     {
-        //É construido o mundo de maneira padrão, de acordo com as caracteristicas de cada lvl
         super(800, 600, 1);
         p1Monster = new P1Monster(this);
         p2Monster = new P2Monster(this);
@@ -44,16 +46,13 @@ public class MyWorld extends World
         }
     }
     
+    /**
+     * Atualiza as informacoes em tela e cria os objetos necessarios para
+     * popular o cenario.
+     */
     public void act()
     {
         showText("Level: " + level.getIdLevel(), 500,20);
-        //showText("F1: " + p1Monster.fireBool + "F2:" + p2Monster.fireBool, 500,50);
-        /*try{
-            showText("T1: " + p1Monster.timeShot.getTime() + "T2:" + p2Monster.timeShot.getTime(), 500,80);
-        }catch(Exception ex){
-        
-        }*/
-        
         initializeTime();
         initializeSound();
         checkTime();
@@ -80,11 +79,17 @@ public class MyWorld extends World
         }
     }
     
+     /**
+     * Inicializa o cronometro do level.
+     */
     public void initializeTime(){
         if(timer == null)
             timer = new Time(time,500,500);
     }
     
+    /**
+     * Inicializa o som para a jogatina.
+     */
     public void initializeSound(){
         if(sound == null){
             sound = new Sound("MusicaEspacial01.wav",25);
@@ -92,15 +97,28 @@ public class MyWorld extends World
             sound.playMusic();
         }
     }
+    
+    /**
+     * Cria e adiciona ao cenario um missel azul.
+     */
     private void generateBlueMissile(){
         Random var = new Random();
         addObject(new MissileBlue(this), var.nextInt(800),10);
     }
+    
+    /**
+     * Cria e adiciona ao cenario um missel verde.
+     */
     private void generateGreenMissile(){
         Random var = new Random();
         MissileGreen missile = new MissileGreen(this);
         addObject(missile, var.nextInt(800),10);
     }
+    
+    /**
+     * Cria e adiciona ao cenario um missel que sera determinado (podendo ser verde ou azul)
+     * com base nas probabilidades de spawn informadas pelo level.
+     */
     private void generateMissible(){
         Random var = new Random();
         if(var.nextInt(100) < incidenceMissile  && level.countMissile < level.getMaxMissile()){
@@ -115,6 +133,10 @@ public class MyWorld extends World
             incidenceMissile = 1;
     }
     
+    /**
+     * Cria e adiciona ao cenario um meteoro que sera determinado (podendo ser verde,
+     * vermelho e dourado) com base nas probabilidades de spawn informadas pelo level.
+     */
     private void generateMeteor(){
         Random var = new Random();
         int value = var.nextInt(101);
@@ -130,6 +152,11 @@ public class MyWorld extends World
             incrementMeteor();
         }   
     }
+    
+    /**
+     * Cria e adiciona ao cenario um satelite com frequencia variavel dependente da
+     * probabilidade indicada pelo level.
+     */
     private void generateSatellite(){
         Random var = new Random();
         if(var.nextInt(51) == 50 && level.countSatellite < level.getMaxSatellite()){
@@ -137,6 +164,7 @@ public class MyWorld extends World
             incrementSatellite();
         }   
     }
+    
     private void updateScore(){
         showText("Score P1: " + p1Monster.getScore(), 700,20);
         showText("Score P2: " + p2Monster.getScore(), 100,20);
@@ -146,6 +174,10 @@ public class MyWorld extends World
         showText("Time: " + timer.getTime(), 390,20);
     }
 
+    /**
+     * Verifica se o tempo do level se esgotou. Caso verdadeiro, um botao sera criado e
+     * adicionado a tela para que o jogador possa ir para a proxima fase.
+     */
     private void checkTime(){
         if(timer.getTime() == 0){
             if(sound != null)
